@@ -14,6 +14,10 @@ config/name="Fresh Freaky Fish"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="Fresh Freaky Fish"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

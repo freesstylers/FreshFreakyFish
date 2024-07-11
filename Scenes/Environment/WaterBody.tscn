@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpabwbo2u6s1y"]
+
+[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="1_0gq20"]
+[ext_resource type="Script" path="res://Scripts/Environment/WaterBody.gd" id="1_ot2dl"]
+[ext_resource type="PackedScene" uid="uid://f6ufnehndica" path="res://Scenes/Environment/ActivityArea.tscn" id="2_77m8w"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(600, 319)
+script = ExtResource("1_ot2dl")
+ActivityAreaScene = ExtResource("2_77m8w")
+WaterSensorPixelSize = 15
+
+[node name="WaterBodySprite" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(6.35097, -2.82439)
+texture = ExtResource("1_0gq20")
+
+[node name="WaterBodyArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterBodyArea"]
+polygon = PackedVector2Array(-407, -137, -390, -161, -351, -179, -282, -181, 334, -179, 380, -163, 404, -138, 402, 146, 388, 164, 342, 174, 271, 180, -323, 184, -368, 169, -408, 144)
+
+[node name="TopLeftLimit" type="Node2D" parent="."]
+position = Vector2(-420, -200)
+
+[node name="BottomRightLimit" type="Node2D" parent="."]
+position = Vector2(414, 190)
+
+[node name="NodesPool" type="Node2D" parent="."]
