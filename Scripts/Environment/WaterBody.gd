@@ -9,13 +9,14 @@ extends Node
 @onready var NodesPool = $NodesPool
 @onready var WaterSensorTopLeftSpawnLimit = $TopLeftLimit
 @onready var WaterSensorBottomRightSpawnLimit = $BottomRightLimit
+@onready var areaPolygon : CollisionPolygon2D = $WaterBodyArea/CollisionPolygon2D
 
 var sensor_grid = []
 
 func _ready():
 	prepare_activity_area()
 	connect_sensor_neighbors()
-	set_process_input(true)
+	disable_sensors_outside_of_water_body()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -82,6 +83,14 @@ func connect_sensor_neighbors():
 			
 			sensor_grid[row][col].set_neighboring_areas(above_sensor, below_sensor, left_sensor, right_sensor)
 
+func disable_sensors_outside_of_water_body():
+	for row in sensor_grid:
+		for sensor in row:
+			if is_point_inside_polygon(sensor.global_position):
+				sensor.visible = true
+			else:
+				sensor.visible = false
+
 func spread_water_drop(start_row: int, start_col: int, force: float):
 	var queue = []
 	queue.append({r = start_row, c = start_col, f = force})
@@ -113,3 +122,13 @@ func spread_water_drop(start_row: int, start_col: int, force: float):
 					#Only if not visited yet
 					if not visited[n_row][n_col] and queue_elem.f * FadeFactor > 0.1:
 						queue.append({r = n_row, c = n_col, f = queue_elem.f * FadeFactor})
+
+func is_point_inside_polygon(point: Vector2) -> bool:
+	var polygonVertices = areaPolygon.polygon
+	var transform = areaPolygon.global_transform
+	var vertices_global_positions = []
+	for local_point in polygonVertices:
+		var global_point = transform.origin + transform.basis_xform(local_point)
+		vertices_global_positions.append(global_point)
+	# Check if the point is inside the polygon
+	return Geometry2D.is_point_in_polygon(point, vertices_global_positions)
