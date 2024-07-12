@@ -78,5 +78,11 @@ func _on_catch_pressed():
 				fishCaught = fishArray[i]
 				alreadyCaught = true
 				break
+	
+	# Si el Coloso ya puede ser capturado, hacemos el cálculo después por separado
+	if fishArray[totalNumFish-1].Probability > 0.0:
+		var ran = randi_range(1, 10)
+		if ran == 1:
+			fishCaught = fishArray[totalNumFish-1]
 			
 	print("He pescado un " + fishCaught.Name)
