@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://c2065qchon76m"]
+
+[ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_d2dd8"]
+
+[resource]
+script = ExtResource("1_d2dd8")
+Name = "Pez nerd"
+Description = "Que puto asco me dan."
+IsColosal = false

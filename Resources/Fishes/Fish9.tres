@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://bf1ryceacx5e4"]
+
+[ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_wttrj"]
+
+[resource]
+script = ExtResource("1_wttrj")
+Name = "Pez afrocol"
+Description = "Funky."
+IsColosal = false

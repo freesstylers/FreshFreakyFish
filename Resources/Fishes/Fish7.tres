@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://cg0ic1oykpqj3"]
+
+[ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_2ao4q"]
+
+[resource]
+script = ExtResource("1_2ao4q")
+Name = "Pez perrito"
+Description = "No, no ese perro. No, no ese perrito."
+IsColosal = false

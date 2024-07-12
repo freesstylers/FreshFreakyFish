@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://cxjpgt5tlylel"]
+
+[ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_l4k6n"]
+
+[resource]
+script = ExtResource("1_l4k6n")
+Name = "Pez ostra"
+Description = "Come por los ojos y ve por la boca."
+IsColosal = false

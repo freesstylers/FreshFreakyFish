@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dquhyqt1kya4s"]
+[gd_scene load_steps=5 format=3 uid="uid://dquhyqt1kya4s"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_hs7cy"]
 [ext_resource type="Texture2D" uid="uid://b074c2f0pve36" path="res://Sprites/pruebafondo.png" id="1_rlndd"]
 [ext_resource type="Texture2D" uid="uid://cpnle7yr3q53d" path="res://Sprites/pruebaback.png" id="3_lhhm5"]
+[ext_resource type="Script" path="res://Scripts/FishManager.gd" id="4_mhyp1"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -58,6 +59,9 @@ offset_right = 934.0
 offset_bottom = 237.0
 theme_override_font_sizes/font_size = 100
 text = "Fresh Freaky Fish"
+
+[node name="FishManager" type="Node" parent="."]
+script = ExtResource("4_mhyp1")
 
 [connection signal="pressed" from="Play" to="Camera2D" method="_on_play_pressed"]
 [connection signal="pressed" from="Back" to="Camera2D" method="_on_back_pressed"]
