@@ -2,6 +2,7 @@ extends Node
 
 @export var totalNumFish : int = 13
 
+# Esto determina lo picuda que es la campana de probabilidades, cuanto mas cercana a 0 mas picuda
 @export var variance : float = 1.2
 
 var totalFishCaught : int = 0
