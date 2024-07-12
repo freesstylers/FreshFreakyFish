@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://cj3jhunl5ljb6"]
+[gd_resource type="Resource" script_class="Fish" load_steps=3 format=3 uid="uid://cj3jhunl5ljb6"]
 
 [ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_fftik"]
+[ext_resource type="Texture2D" uid="uid://yj5uuu6xmpob" path="res://Assets/Sprites/Fishes/Fishes_1.png" id="1_fxlkk"]
 
 [resource]
 script = ExtResource("1_fftik")
 Name = "Pez rayo"
 Description = "Es un pez en forma de rayo."
+Sprite = ExtResource("1_fxlkk")
 IsColosal = false

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://bfhrx2e4g65gr"]
+[gd_resource type="Resource" script_class="Fish" load_steps=3 format=3 uid="uid://bfhrx2e4g65gr"]
 
 [ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_cspbo"]
+[ext_resource type="Texture2D" uid="uid://befl1expxy5e7" path="res://Assets/Sprites/Fishes/Fishes_2.png" id="1_kvecp"]
 
 [resource]
 script = ExtResource("1_cspbo")
 Name = "Pez beso"
 Description = "Vaya pedazo de labios, tú."
+Sprite = ExtResource("1_kvecp")
 IsColosal = false

@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://d4btjkw6cacqd"]
+[gd_scene load_steps=5 format=3 uid="uid://d4btjkw6cacqd"]
+
+[ext_resource type="Texture2D" uid="uid://dp6vagjkkrocj" path="res://Assets/Sprites/book_sheet2.png" id="1_gaaq8"]
+[ext_resource type="Theme" uid="uid://c2ykx5j3i1k0u" path="res://Assets/UI/UI_General.tres" id="1_m5e2w"]
+[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="2_2wne8"]
+[ext_resource type="PackedScene" uid="uid://b7gpbgffuisqv" path="res://Assets/Prefabs/fish_entry.tscn" id="2_oiju4"]
 
 [node name="UiTestScene" type="Control"]
 layout_mode = 3
@@ -15,14 +20,82 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_m5e2w")
 
-[node name="LibroBG" type="Panel" parent="Freakypedia"]
+[node name="libro bg" type="TextureRect" parent="Freakypedia"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.084375
-anchor_top = 0.0986111
-anchor_right = 0.915625
-anchor_bottom = 0.901389
+anchor_left = 0.114063
+anchor_top = 0.113889
+anchor_right = 0.886458
+anchor_bottom = 0.886111
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_gaaq8")
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftPageMask" type="ScrollContainer" parent="Freakypedia/libro bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0708024
+anchor_top = 0.160671
+anchor_right = 0.473365
+anchor_bottom = 0.707434
+horizontal_scroll_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftPage" type="GridContainer" parent="Freakypedia/libro bg/LeftPageMask"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="FishEntry" parent="Freakypedia/libro bg/LeftPageMask/LeftPage" instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RightPageMask" type="Panel" parent="Freakypedia/libro bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.526635
+anchor_top = 0.173861
+anchor_right = 0.931895
+anchor_bottom = 0.706235
+metadata/_edit_use_anchors_ = true
+
+[node name="FishIMG" type="TextureRect" parent="Freakypedia/libro bg/RightPageMask"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.393511
+anchor_top = 0.0968468
+anchor_right = 0.606489
+anchor_bottom = 0.385135
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2wne8")
+metadata/_edit_use_anchors_ = true
+
+[node name="FishName" type="RichTextLabel" parent="Freakypedia/libro bg/RightPageMask"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.434685
+anchor_right = 1.0
+anchor_bottom = 0.599099
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center]sdfgdfsgsdf[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="FishDesc" type="RichTextLabel" parent="Freakypedia/libro bg/RightPageMask"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.576577
+anchor_right = 1.0
+anchor_bottom = 0.995495
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
 metadata/_edit_use_anchors_ = true

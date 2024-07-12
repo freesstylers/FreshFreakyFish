@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://qc8jo8pyf28e"]
+[gd_resource type="Resource" script_class="Fish" load_steps=3 format=3 uid="uid://qc8jo8pyf28e"]
 
+[ext_resource type="Texture2D" uid="uid://6sa5vvamsk3q" path="res://Assets/Sprites/Fishes/Fishes_5.png" id="1_oyhv6"]
 [ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_u2ek2"]
 
 [resource]
 script = ExtResource("1_u2ek2")
 Name = "Pez mando"
 Description = "Con él puedes jugar a la FishStation."
+Sprite = ExtResource("1_oyhv6")
 IsColosal = false

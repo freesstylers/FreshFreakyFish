@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://cxmh18mbaue8w"]
+[gd_resource type="Resource" script_class="Fish" load_steps=3 format=3 uid="uid://cxmh18mbaue8w"]
 
+[ext_resource type="Texture2D" uid="uid://pobvty45guht" path="res://Assets/Sprites/Fishes/Fish_Colosal.png" id="1_hhqkq"]
 [ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_ihaqv"]
 
 [resource]
 script = ExtResource("1_ihaqv")
 Name = "Pez Colosal"
-Description = ""
+Description = "Es un pez grande y vegetal."
+Sprite = ExtResource("1_hhqkq")
 IsColosal = true

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7gpbgffuisqv"]
+
+[ext_resource type="Theme" path="res://Assets/UI/ImgButton.tres" id="1_e755s"]
+[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="1_xef85"]
+
+[node name="FishEntry" type="Control"]
+custom_minimum_size = Vector2(138, 138)
+layout_mode = 3
+anchor_right = 0.07175
+anchor_bottom = 0.127445
+offset_right = 0.23999
+offset_bottom = 0.359619
+theme = ExtResource("1_e755s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_xef85")
+icon_alignment = 1
+expand_icon = true
