@@ -32,10 +32,51 @@ func getGaussianProbability(num):
 func recalculateProbabilities():
 	for i in totalNumFish:
 		fishArray[i].Probability = getGaussianProbability(i)
-		print(str(fishArray[i].Probability))
 	
 	if distinctFishCaught > totalNumFish-3:
 		fishArray[totalNumFish-1].Probability = 0.1
 	else:
 		fishArray[totalNumFish-1].Probability = 0.0
 		
+	normalizeProbabilities()
+
+# Ajustamos la campana para que la suma de todas las probabilidades (menos las de coloso) sumen 100%
+func normalizeProbabilities():
+	var acumProb : float = 0.0
+	for i in totalNumFish-1:
+		acumProb += fishArray[i].Probability
+	
+	var resto = 1.0 - acumProb
+	
+	for i in totalNumFish-1:
+		fishArray[i].Probability += resto*fishArray[i].Probability
+		
+func _on_catch_pressed():
+	var alreadyCaught : bool = false
+	var fishCaught : Fish = null
+	
+	while alreadyCaught == false:
+		var randoNum = randi_range(1, 10000)
+		for i in fishArray.size():
+			
+			var prevProb : float = 0.0
+			if i == 0:
+				prevProb = 0.0
+			else:
+				prevProb = fishArray[i-1].Probability
+				
+			# Lo hacemos de esta manera para que las probabilidades actuen como pesos
+			# Y lo multiplicamos por 10000 para que haya precision de hasta dos decimales
+			if randoNum > prevProb*10000 and randoNum < fishArray[i].Probability*10000:
+				
+				#Si es nuevo, lo marcamos y recalculamos probabilidades
+				if fishArray[i].Caught == false:
+					distinctFishCaught+=1
+					fishArray[i].Caught = true
+					recalculateProbabilities()
+					
+				fishCaught = fishArray[i]
+				alreadyCaught = true
+				break
+			
+	print("He pescado un " + fishCaught.Name)

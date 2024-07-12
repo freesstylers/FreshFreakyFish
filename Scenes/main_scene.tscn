@@ -51,6 +51,22 @@ offset_bottom = 108.0
 grow_horizontal = 0
 icon = ExtResource("3_lhhm5")
 
+[node name="Catch" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1030.0
+offset_top = -200.0
+offset_right = 1230.0
+offset_bottom = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "¡Te pillé!"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 offset_left = 100.0
@@ -65,3 +81,4 @@ script = ExtResource("4_mhyp1")
 
 [connection signal="pressed" from="Play" to="Camera2D" method="_on_play_pressed"]
 [connection signal="pressed" from="Back" to="Camera2D" method="_on_back_pressed"]
+[connection signal="pressed" from="Catch" to="FishManager" method="_on_catch_pressed"]
