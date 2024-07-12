@@ -1,3 +1,4 @@
+class_name WaterBody
 extends Node
 
 @export var ActivityAreaScene : PackedScene = null
