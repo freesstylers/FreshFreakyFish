@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://b7chirwqriuc7"]
+[gd_resource type="Resource" script_class="Fish" load_steps=3 format=3 uid="uid://b7chirwqriuc7"]
 
+[ext_resource type="Texture2D" uid="uid://bcwq64yvr8ym7" path="res://Assets/Sprites/Fishes/Fishes_3.png" id="1_ibsu3"]
 [ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_ltc4j"]
 
 [resource]
 script = ExtResource("1_ltc4j")
 Name = "Pez flecha"
 Description = "Una vez se me clavó uno en la rodilla."
+Sprite = ExtResource("1_ibsu3")
 IsColosal = false

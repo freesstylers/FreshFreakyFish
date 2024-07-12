@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=2 format=3 uid="uid://buhe5aqsc5aiq"]
+[gd_resource type="Resource" script_class="Fish" load_steps=3 format=3 uid="uid://buhe5aqsc5aiq"]
 
 [ext_resource type="Script" path="res://Resources/fishResource.gd" id="1_qjhc6"]
+[ext_resource type="Texture2D" uid="uid://dyqay6xp3jh5w" path="res://Assets/Sprites/Fishes/Fishes_12.png" id="1_rh3x4"]
 
 [resource]
 script = ExtResource("1_qjhc6")
 Name = "Pez 12"
 Description = ""
+Sprite = ExtResource("1_rh3x4")
 IsColosal = false
