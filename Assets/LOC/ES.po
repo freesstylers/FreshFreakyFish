@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: ezgif.com\n"
+
+msgid ""
+msgstr "es"
+
+msgid "Fish1_Name"
+msgstr "Pez rayo"
+
+msgid "Fish1_Desc"
+msgstr "PENDIENTE"
+
+msgid "Fish2_Name"
+msgstr "Pez beso"
+
+msgid "Fish2_Desc"
+msgstr "PENDIENTE"
+
+msgid "Fish3_Name"
+msgstr "Pez flecha"
+
+msgid "Fish3_Desc"
+msgstr "Una vez se me clavó uno en la rodilla."
+
+msgid "Fish4_Name"
+msgstr "Pez mano"
+
+msgid "Fish4_Desc"
+msgstr "PENDIENTE"
+
+msgid "Fish5_Name"
+msgstr "Pez mando"
+
+msgid "Fish5_Desc"
+msgstr "Con mando pero sin manos, como tu colega cuando jugáis juntos."
+
+msgid "Fish6_Name"
+msgstr "PENDIENTE"
+
+msgid "Fish6_Desc"
+msgstr "PENDIENTE"
+
+msgid "Fish7_Name"
+msgstr "Pez perro"
+
+msgid "Fish7_Desc"
+msgstr "No era el pez perro que esperaba, pero quizá sí el que merezco."
+
+msgid "Fish8_Name"
+msgstr "PENDIENTE"
+
+msgid "Fish8_Desc"
+msgstr "PENDIENTE"
+
+msgid "Fish9_Name"
+msgstr "Sargento Karakol"
+
+msgid "Fish9_Desc"
+msgstr "¿Has oído hablar del caracol afro?"
+
+msgid "Fish10_Name"
+msgstr "PENDIENTE"
+
+msgid "Fish10_Desc"
+msgstr "A juzgar por el color, quizá le sentó mal una hamburguesa."
+
+msgid "Fish11_Name"
+msgstr "PENDIENTE"
+
+msgid "Fish11_Desc"
+msgstr "PENDIENTE"
+
+msgid "Fish12_Name"
+msgstr "Pez águila"
+
+msgid "Fish12_Desc"
+msgstr "Más sabe el pez águila por pez que por águila."
+
+msgid "Fish13_Name"
+msgstr "Pez Col-osal"
+
+msgid "Fish13_Desc"
+msgstr "PENDIENTE"
+
+msgid "Fish14_Name"
+msgstr "PENDIENTE"
+
+msgid "Fish14_Desc"
+msgstr "PENDIENTE"
+

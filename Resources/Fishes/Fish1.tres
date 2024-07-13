@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_fftik")
-Name = "Pez rayo"
-Description = "Es un pez en forma de rayo."
+Name = "Fish1_Name"
+Description = "Fish1_Desc"
 Sprite = ExtResource("1_fxlkk")
 IsColosal = false

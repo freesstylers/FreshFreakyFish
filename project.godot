@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Fresh Freaky Fish"
+run/main_scene="res://Scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManagerScript="*res://Scripts/GameManagerScript.gd"
 
 [display]
 
@@ -24,7 +29,12 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Fresh Freaky Fish"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/LOC/EN.po", "res://Assets/LOC/ES.po")
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dquhyqt1kya4s"]
+[gd_scene load_steps=8 format=3 uid="uid://dquhyqt1kya4s"]
 
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_hs7cy"]
 [ext_resource type="Texture2D" uid="uid://b074c2f0pve36" path="res://Sprites/pruebafondo.png" id="1_rlndd"]
 [ext_resource type="Texture2D" uid="uid://cpnle7yr3q53d" path="res://Sprites/pruebaback.png" id="3_lhhm5"]
+[ext_resource type="Theme" uid="uid://c2ykx5j3i1k0u" path="res://Assets/UI/UI_General.tres" id="3_xwoam"]
 [ext_resource type="Script" path="res://Scripts/FishManager.gd" id="4_mhyp1"]
+[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="6_lgc44"]
+[ext_resource type="PackedScene" uid="uid://d4btjkw6cacqd" path="res://Scenes/uiTestScene.tscn" id="7_32sse"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -12,10 +15,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1280, 360)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.166667
+anchor_right = 1.16667
+anchor_bottom = 1.0
+offset_right = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_rlndd")
+metadata/_edit_use_anchors_ = true
+
+[node name="UiTestScene" parent="." instance=ExtResource("7_32sse")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.834375
+anchor_right = 1.83438
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("mainpos", "gamepos")]
 script = ExtResource("1_hs7cy")
@@ -23,23 +42,23 @@ mainpos = NodePath("../MainPos")
 gamepos = NodePath("../GamePos")
 
 [node name="MainPos" type="Node2D" parent="."]
-position = Vector2(640, 360)
+position = Vector2(640, 540)
 
 [node name="GamePos" type="Node2D" parent="."]
-position = Vector2(1920, 360)
+position = Vector2(2560, 540)
 
 [node name="Play" type="Button" parent="."]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -200.0
-offset_right = 400.0
-offset_bottom = -100.0
+anchors_preset = -1
+anchor_left = 0.0520833
+anchor_top = 0.814815
+anchor_right = 0.208333
+anchor_bottom = 0.907407
 grow_vertical = 0
+theme = ExtResource("3_xwoam")
 text = "¡A pescar!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 1
@@ -49,36 +68,49 @@ anchor_right = 1.0
 offset_right = 108.0
 offset_bottom = 108.0
 grow_horizontal = 0
+theme = ExtResource("3_xwoam")
 icon = ExtResource("3_lhhm5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Catch" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1030.0
-offset_top = -200.0
-offset_right = 1230.0
-offset_bottom = -100.0
+anchors_preset = -1
+anchor_left = 1.61146
+anchor_top = 0.807407
+anchor_right = 1.71563
+anchor_bottom = 0.9
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("3_xwoam")
 text = "¡Te pillé!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 934.0
-offset_bottom = 237.0
+anchors_preset = -1
+anchor_right = 0.601563
+anchor_bottom = 0.118519
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_xwoam")
 theme_override_font_sizes/font_size = 100
 text = "Fresh Freaky Fish"
+metadata/_edit_use_anchors_ = true
 
 [node name="FishManager" type="Node" parent="."]
 script = ExtResource("4_mhyp1")
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 1.74167
+anchor_top = 0.0351852
+anchor_right = 1.8125
+anchor_bottom = 0.161111
+icon = ExtResource("6_lgc44")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Play" to="Camera2D" method="_on_play_pressed"]
 [connection signal="pressed" from="Back" to="Camera2D" method="_on_back_pressed"]
 [connection signal="pressed" from="Catch" to="FishManager" method="_on_catch_pressed"]
+[connection signal="pressed" from="Button" to="UiTestScene" method="_on_button_pressed"]

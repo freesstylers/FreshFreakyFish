@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ltc4j")
-Name = "Pez flecha"
-Description = "Una vez se me clavó uno en la rodilla."
+Name = "Fish3_Name"
+Description = "Fish3_Desc"
 Sprite = ExtResource("1_ibsu3")
 IsColosal = false

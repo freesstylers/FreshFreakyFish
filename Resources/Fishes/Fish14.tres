@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=3 format=3 uid="uid://cau237dfv4y1"]
+
+[ext_resource type="Texture2D" uid="uid://dwc315j7hh2j7" path="res://Assets/Sprites/Fishes/Fishes_Base.png" id="1_ijfye"]
+[ext_resource type="Script" path="res://Resources/fishResource.gd" id="2_th4vt"]
+
+[resource]
+script = ExtResource("2_th4vt")
+Name = "Fish14_Name"
+Description = "Fish14_Desc"
+Sprite = ExtResource("1_ijfye")
+IsColosal = false

@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: ezgif.com\n"
+
+msgid ""
+msgstr "en"
+
+msgid "Fish1_Name"
+msgstr "Lightfish"
+
+msgid "Fish1_Desc"
+msgstr "PENDING"
+
+msgid "Fish2_Name"
+msgstr "Kissfish"
+
+msgid "Fish2_Desc"
+msgstr "Fish, fish, fall in love!"
+
+msgid "Fish3_Name"
+msgstr "Arrowfish"
+
+msgid "Fish3_Desc"
+msgstr "I got hit in the knee by one of these once."
+
+msgid "Fish4_Name"
+msgstr "Thingfish"
+
+msgid "Fish4_Desc"
+msgstr "It communicates with other fish through Morse code."
+
+msgid "Fish5_Name"
+msgstr "Stickfish"
+
+msgid "Fish5_Desc"
+msgstr "Perfect for cod."
+
+msgid "Fish6_Name"
+msgstr "Nerdfish"
+
+msgid "Fish6_Desc"
+msgstr "Actually, its scientific name is"
+
+msgid "Fish7_Name"
+msgstr "Hotfish"
+
+msgid "Fish7_Desc"
+msgstr "This might as well be considered sushi."
+
+msgid "Fish8_Name"
+msgstr "PENDING"
+
+msgid "Fish8_Desc"
+msgstr "If this one wore glasses, how would it wear them?"
+
+msgid "Fish9_Name"
+msgstr "PENDING"
+
+msgid "Fish9_Desc"
+msgstr "PENDING"
+
+msgid "Fish10_Name"
+msgstr "PENDING"
+
+msgid "Fish10_Desc"
+msgstr "It's not a phase, Ariel."
+
+msgid "Fish11_Name"
+msgstr "Jellyfishfish"
+
+msgid "Fish11_Desc"
+msgstr "PENDING"
+
+msgid "Fish12_Name"
+msgstr "Eaglefish"
+
+msgid "Fish12_Desc"
+msgstr "A patriotic individual."
+
+msgid "Fish13_Name"
+msgstr "Cabbagefish"
+
+msgid "Fish13_Desc"
+msgstr "Probably funnier in Spanish."
+
+msgid "Fish14_Name"
+msgstr "PENDING"
+
+msgid "Fish14_Desc"
+msgstr "PENDING"
+

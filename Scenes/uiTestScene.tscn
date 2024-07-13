@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4btjkw6cacqd"]
+[gd_scene load_steps=21 format=3 uid="uid://d4btjkw6cacqd"]
 
 [ext_resource type="Texture2D" uid="uid://dp6vagjkkrocj" path="res://Assets/Sprites/book_sheet2.png" id="1_gaaq8"]
 [ext_resource type="Theme" uid="uid://c2ykx5j3i1k0u" path="res://Assets/UI/UI_General.tres" id="1_m5e2w"]
-[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="2_2wne8"]
+[ext_resource type="Script" path="res://Scripts/UI_Manager.gd" id="1_utbpt"]
 [ext_resource type="PackedScene" uid="uid://b7gpbgffuisqv" path="res://Assets/Prefabs/fish_entry.tscn" id="2_oiju4"]
+[ext_resource type="Resource" uid="uid://cau237dfv4y1" path="res://Resources/Fishes/Fish14.tres" id="4_8vygp"]
+[ext_resource type="Resource" uid="uid://cj3jhunl5ljb6" path="res://Resources/Fishes/Fish1.tres" id="4_jho3q"]
+[ext_resource type="Texture2D" uid="uid://dwc315j7hh2j7" path="res://Assets/Sprites/Fishes/Fishes_Base.png" id="4_ubntd"]
+[ext_resource type="Resource" uid="uid://bfhrx2e4g65gr" path="res://Resources/Fishes/Fish2.tres" id="5_n8uwn"]
+[ext_resource type="Resource" uid="uid://b7chirwqriuc7" path="res://Resources/Fishes/Fish3.tres" id="6_gcibe"]
+[ext_resource type="Resource" uid="uid://dl703tvev3v17" path="res://Resources/Fishes/Fish4.tres" id="7_s1anc"]
+[ext_resource type="Resource" uid="uid://qc8jo8pyf28e" path="res://Resources/Fishes/Fish5.tres" id="8_dildu"]
+[ext_resource type="Resource" uid="uid://c2065qchon76m" path="res://Resources/Fishes/Fish6.tres" id="9_heoea"]
+[ext_resource type="Resource" uid="uid://cg0ic1oykpqj3" path="res://Resources/Fishes/Fish7.tres" id="10_7es17"]
+[ext_resource type="Resource" uid="uid://cxjpgt5tlylel" path="res://Resources/Fishes/Fish8.tres" id="11_eptts"]
+[ext_resource type="Resource" uid="uid://bf1ryceacx5e4" path="res://Resources/Fishes/Fish9.tres" id="12_tl2pi"]
+[ext_resource type="Resource" uid="uid://b7e16ojet10d2" path="res://Resources/Fishes/Fish10.tres" id="13_ua1i5"]
+[ext_resource type="Resource" uid="uid://bhmx6sduryjqy" path="res://Resources/Fishes/Fish11.tres" id="14_lsqtk"]
+[ext_resource type="Resource" uid="uid://buhe5aqsc5aiq" path="res://Resources/Fishes/Fish12.tres" id="15_pu1p6"]
+[ext_resource type="Resource" uid="uid://cxmh18mbaue8w" path="res://Resources/Fishes/FishColosal.tres" id="16_i4kum"]
+[ext_resource type="Script" path="res://Scripts/Fishes/FishDetailedPage.gd" id="17_eq7nw"]
 
 [node name="UiTestScene" type="Control"]
 layout_mode = 3
@@ -12,8 +28,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_utbpt")
 
 [node name="Freakypedia" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,27 +52,129 @@ grow_vertical = 2
 texture = ExtResource("1_gaaq8")
 metadata/_edit_use_anchors_ = true
 
-[node name="LeftPageMask" type="ScrollContainer" parent="Freakypedia/libro bg"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0708024
-anchor_top = 0.160671
-anchor_right = 0.473365
-anchor_bottom = 0.707434
-horizontal_scroll_mode = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="LeftPage" type="GridContainer" parent="Freakypedia/libro bg/LeftPageMask"]
+[node name="LeftPage" type="GridContainer" parent="Freakypedia/libro bg"]
 layout_mode = 2
+offset_left = 117.0
+offset_top = 134.0
+offset_right = 681.0
+offset_bottom = 698.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 columns = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="FishEntry" parent="Freakypedia/libro bg/LeftPageMask/LeftPage" instance=ExtResource("2_oiju4")]
+[node name="FishEntry" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("4_jho3q")
+
+[node name="FishEntry2" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("5_n8uwn")
+
+[node name="FishEntry3" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("6_gcibe")
+
+[node name="FishEntry4" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("7_s1anc")
+
+[node name="FishEntry5" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("8_dildu")
+
+[node name="FishEntry6" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("9_heoea")
+
+[node name="FishEntry7" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("10_7es17")
+
+[node name="FishEntry8" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("11_eptts")
+
+[node name="FishEntry9" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("12_tl2pi")
+
+[node name="FishEntry10" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("13_ua1i5")
+
+[node name="FishEntry11" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("14_lsqtk")
+
+[node name="FishEntry12" parent="Freakypedia/libro bg/LeftPage" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../../RightPageMask")
+fishReference = ExtResource("15_pu1p6")
+
+[node name="FishEntry13" parent="Freakypedia/libro bg" node_paths=PackedStringArray("detailedPage") instance=ExtResource("2_oiju4")]
+custom_minimum_size = Vector2(352, 192)
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.149696
+anchor_top = 0.695444
+anchor_right = 0.387053
+anchor_bottom = 0.92566
+offset_left = -1.52588e-05
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+notCaught = ExtResource("4_8vygp")
+detailedPage = NodePath("../RightPageMask")
+fishReference = ExtResource("16_i4kum")
 
 [node name="RightPageMask" type="Panel" parent="Freakypedia/libro bg"]
 layout_mode = 1
@@ -63,6 +183,7 @@ anchor_left = 0.526635
 anchor_top = 0.173861
 anchor_right = 0.931895
 anchor_bottom = 0.706235
+script = ExtResource("17_eq7nw")
 metadata/_edit_use_anchors_ = true
 
 [node name="FishIMG" type="TextureRect" parent="Freakypedia/libro bg/RightPageMask"]
@@ -71,10 +192,10 @@ anchors_preset = -1
 anchor_left = 0.393511
 anchor_top = 0.0968468
 anchor_right = 0.606489
-anchor_bottom = 0.385135
+anchor_bottom = 0.240991
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2wne8")
+texture = ExtResource("4_ubntd")
 metadata/_edit_use_anchors_ = true
 
 [node name="FishName" type="RichTextLabel" parent="Freakypedia/libro bg/RightPageMask"]

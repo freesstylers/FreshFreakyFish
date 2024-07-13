@@ -73,9 +73,12 @@ func _on_catch_pressed():
 				if fishArray[i].Caught == false:
 					distinctFishCaught+=1
 					fishArray[i].Caught = true
+					if !GameManagerScript.save_dict.has(fishArray[i].Name):
+						GameManagerScript.save_dict[fishArray[i].Name] = true									
 					recalculateProbabilities()
 					
 				fishCaught = fishArray[i]
+
 				alreadyCaught = true
 				break
 	
@@ -85,4 +88,4 @@ func _on_catch_pressed():
 		if ran == 1:
 			fishCaught = fishArray[totalNumFish-1]
 			
-	print("He pescado un " + fishCaught.Name)
+	print("He pescado un " + tr(fishCaught.Name))

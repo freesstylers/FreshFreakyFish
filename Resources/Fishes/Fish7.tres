@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_2ao4q")
-Name = "Pez perrito"
-Description = "No, no ese perro. No, no ese perrito."
+Name = "Fish7_Name"
+Description = "Fish7_Desc"
 Sprite = ExtResource("1_v36ki")
 IsColosal = false
