@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Environment/WaterBody.gd" id="1_ot2dl"]
 [ext_resource type="PackedScene" uid="uid://f6ufnehndica" path="res://Scenes/Environment/ActivityArea.tscn" id="2_77m8w"]
 
-[node name="Node2D" type="Node2D"]
+[node name="WaterBody" type="Node2D"]
 position = Vector2(600, 319)
 script = ExtResource("1_ot2dl")
 ActivityAreaScene = ExtResource("2_77m8w")

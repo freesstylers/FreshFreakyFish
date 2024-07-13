@@ -11,16 +11,19 @@ position = Vector2(615, 318)
 script = ExtResource("1_0nvkw")
 
 [node name="FishSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 25)
 rotation = 1.5708
 texture = ExtResource("2_20ict")
 
 [node name="CharacterBody" type="CharacterBody2D" parent="."]
+position = Vector2(0, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody"]
 position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_7j5pt")
 
 [node name="AwarenesPositions" type="Node2D" parent="."]
+position = Vector2(0, 25)
 
 [node name="AwarenesPos1" type="Node2D" parent="AwarenesPositions"]
 position = Vector2(35, -57)

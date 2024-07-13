@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://coh43m7jpi7sw"]
+
+[ext_resource type="PackedScene" uid="uid://bpabwbo2u6s1y" path="res://Scenes/Environment/WaterBody.tscn" id="1_25fjs"]
+[ext_resource type="Script" path="res://Scripts/FishSpawnManager.gd" id="1_crri1"]
+[ext_resource type="PackedScene" uid="uid://r26svdb4yxlv" path="res://Scenes/Fishes/FishBase.tscn" id="2_8e62w"]
+[ext_resource type="PackedScene" uid="uid://b3ko1knhdsvy0" path="res://Scenes/FishingRod.tscn" id="2_kt0hv"]
+
+[node name="FishingElements" type="Node2D" node_paths=PackedStringArray("water_body")]
+script = ExtResource("1_crri1")
+fish_scene = ExtResource("2_8e62w")
+water_body = NodePath("WaterBody")
+
+[node name="WaterBody" parent="." instance=ExtResource("1_25fjs")]
+position = Vector2(960, 479)
+
+[node name="FishingRod" parent="." node_paths=PackedStringArray("water_body") instance=ExtResource("2_kt0hv")]
+water_body = NodePath("../WaterBody")
+
+[node name="FishesSpawnedPool" type="Node2D" parent="."]

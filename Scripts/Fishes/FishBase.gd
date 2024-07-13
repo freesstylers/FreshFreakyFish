@@ -7,6 +7,9 @@ class_name FishBase
 @export var max_wander_range: float = 500.0  
 
 const TARGET_REACHED_THRESHOLD = 10
+const MIN_SPAWN_FADE_IN_DURATION = 1.5
+const MAX_SPAWN_FADE_IN_DURATION = 5
+
 
 # Internal variables
 var target_position: Vector2 = Vector2.ZERO
@@ -14,8 +17,10 @@ var direction: Vector2 = Vector2.ZERO
 var current_rotation: float = 0.0
 var water_body: WaterBody = null
 
+@onready var FishSprite : Sprite2D = $FishSprite
+
 func _ready():
-	set_new_target()
+	spawn()
 
 func _process(delta):
 	# Move towards wander destination
@@ -48,3 +53,9 @@ func generate_random_valid_position():
 			direction_vector = Vector2.RIGHT.rotated(deg_to_rad(random_angle))
 			candidate_position = global_position + direction_vector * randf_range(min_wander_range, max_wander_range)
 	return candidate_position
+
+func spawn():
+	set_new_target()
+	var local_tween = create_tween()
+	FishSprite.modulate.a = 0
+	local_tween.tween_property(FishSprite, "modulate:a", 1, randf_range(MIN_SPAWN_FADE_IN_DURATION, MAX_SPAWN_FADE_IN_DURATION))
