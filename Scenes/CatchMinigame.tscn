@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkcw7fcmn3sa1"]
+
+[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="1_2r5t2"]
+[ext_resource type="Script" path="res://Scripts/CatchMinigame.gd" id="1_tv3oe"]
+
+[sub_resource type="Curve2D" id="Curve2D_u12mx"]
+_data = {
+"points": PackedVector2Array(0, 0, 100, 0, 0, -100, 0, 0, 0, 0, 100, 0, 100, 0, -100, 0, 0, 100, 0, 0, 0, 0, -100, 0, -100, 0, 0, 0, 0, -100)
+}
+point_count = 5
+
+[node name="CatchMinigame" type="Node2D"]
+position = Vector2(399, 131)
+script = ExtResource("1_tv3oe")
+NumRopeSegments = 20
+
+[node name="MinigamePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_u12mx")
+
+[node name="PlayerIndicator" type="PathFollow2D" parent="MinigamePath"]
+position = Vector2(0, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="MinigamePath/PlayerIndicator"]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("1_2r5t2")
+
+[node name="LinePath" type="Line2D" parent="."]
+points = PackedVector2Array(0, -100, 100, 0, 0, 100, -100, 0)
+closed = true
+
+[node name="KeyLinePaths" type="Node2D" parent="."]
+
+[node name="KeyLine1" type="Line2D" parent="KeyLinePaths"]
+points = PackedVector2Array(37, -117, 82, -109)
+default_color = Color(1, 0, 0, 1)
+
+[node name="KeyLine2" type="Line2D" parent="KeyLinePaths"]
+default_color = Color(1, 0, 0, 0)
+
+[node name="KeyLine3" type="Line2D" parent="KeyLinePaths"]
+default_color = Color(1, 0, 0, 0)
+
+[node name="KeyLine4" type="Line2D" parent="KeyLinePaths"]
+default_color = Color(1, 0, 0, 0)
+
+[node name="KeyLine5" type="Line2D" parent="KeyLinePaths"]
+default_color = Color(1, 0, 0, 0)
+
+[node name="TimeToStartLabel" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -70.0
+offset_right = 33.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 100
+text = "3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="StartTimer" to="." method="start_timer_ended"]
