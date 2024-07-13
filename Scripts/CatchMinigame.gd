@@ -1,7 +1,7 @@
 class_name CatchMinigame
 extends Node2D
 
-@export var rotation_speed: float = 0.10  # Radians per second
+@export var rotation_speed: float = 0.30  # Radians per second
 @export var key_areas: Array[Array] = []  # Notes each time the minigame is played
 @export var note_success_threshold: float = deg_to_rad(45.0) #Size of the default note
 
