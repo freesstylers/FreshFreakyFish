@@ -67,6 +67,7 @@ default_color = Color(1, 0, 0, 1)
 [node name="KeyLine8" type="Line2D" parent="KeyLinePaths"]
 rotation = -1.5708
 points = PackedVector2Array(-39, 111, -9, 59)
+width = 15.0
 default_color = Color(1, 0, 0, 1)
 
 [node name="KeyLine9" type="Line2D" parent="KeyLinePaths"]

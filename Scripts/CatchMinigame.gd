@@ -1,9 +1,9 @@
 class_name CatchMinigame
 extends Node2D
 
-@export var rotation_speed: float = 0.50  # Radians per second
+@export var rotation_speed: float = 0.10  # Radians per second
 @export var key_areas: Array[Array] = []  # Notes each time the minigame is played
-@export var success_threshold: float = deg_to_rad(45.0) #Size of the default note
+@export var note_success_threshold: float = deg_to_rad(45.0) #Size of the default note
 
 @onready var PlayerIndicator : PathFollow2D = $MinigamePath/PlayerIndicator
 @onready var CirclePathVisualizer : Line2D = $LinePath
@@ -20,6 +20,8 @@ var note_set_finished : bool = false
 
 const VerticesCirclePath = 20
 const VerticesPerNote = 5
+const NoteDefaultWidth = 15
+const NoteHitableWidth = 20
 
 func _ready():
 	#Reset Line2D and create a dircle
@@ -39,8 +41,8 @@ func _ready():
 		KeyLinePaths[i].clear_points()
 		
 	prepare_minigame(Vector2(500,300), [
-		[{angle=deg_to_rad(90)}, {angle=deg_to_rad(180)}, {angle=deg_to_rad(270)}],
-		[{angle=deg_to_rad(140)}, {angle=deg_to_rad(200)}]
+		[{angle=deg_to_rad(90), rad_width = deg_to_rad(25)}, {angle=deg_to_rad(180), rad_width = deg_to_rad(45)}, {angle=deg_to_rad(270), rad_width = deg_to_rad(75)}],
+		[{angle=deg_to_rad(140), rad_width = deg_to_rad(90)}, {angle=deg_to_rad(200), rad_width = deg_to_rad(10)}]
 		])
 
 func _process(delta):
@@ -50,13 +52,14 @@ func _process(delta):
 			var time = clamp(3 * (TimeToStartTimer.time_left/timer_count_time)+1, 0, 3)
 			TimeToStartLeft.text = str(time as int)
 	else:
+		
 		rotate_indicator(delta)
 		check_key_press()
 
 func rotate_indicator(delta):
 	#Check for missed notes
 	var player_radians = PlayerIndicator.progress_ratio * (2*PI)
-	if not note_set_finished and player_radians - (success_threshold/2) > key_areas[current_set_index][next_note_index].angle:
+	if not note_set_finished and player_radians - (note_success_threshold/2) > key_areas[current_set_index][next_note_index].angle:
 		hide_key(KeyLinePaths[next_line_index],true)
 		#next set of notes
 		if next_note_index == 0:
@@ -76,13 +79,14 @@ func rotate_indicator(delta):
 	PlayerIndicator.progress_ratio += rotation_delta
 
 func check_key_press():
-	if Input.is_action_just_pressed("ui_accept"):
-		#Where is the player right now and where are the limits of the next note
-		var rad = PlayerIndicator.progress_ratio * (2*PI)
-		var min_success_val = key_areas[current_set_index][next_note_index].angle - (success_threshold/2)
-		var max_success_val = key_areas[current_set_index][next_note_index].angle + (success_threshold/2)
-		#Note hit?
-		if rad > min_success_val and rad < max_success_val:
+	#Where is the player right now and where are the limits of the next note
+	var rad = PlayerIndicator.progress_ratio * (2*PI)
+	var min_success_val = key_areas[current_set_index][next_note_index].angle - (note_success_threshold/2)
+	var max_success_val = key_areas[current_set_index][next_note_index].angle + (note_success_threshold/2)
+	if rad > min_success_val and rad < max_success_val:
+		KeyLinePaths[next_line_index].width = NoteHitableWidth
+		#Note Hit
+		if Input.is_action_just_pressed("ui_accept"):
 			hide_key(KeyLinePaths[next_line_index],true)
 
 func prepare_minigame(global_pos_to_appear : Vector2 , areas_to_place : Array[Array], starting_time : int = 1):
@@ -96,6 +100,7 @@ func prepare_minigame(global_pos_to_appear : Vector2 , areas_to_place : Array[Ar
 	current_set_index = 0
 	next_note_index = 0
 	next_line_index = 0
+	note_success_threshold = key_areas[0][0].rad_width
 	
 	#Time left till the minigame starts
 	TimeToStartTimer.wait_time = starting_time
@@ -124,21 +129,25 @@ func prepare_minigame(global_pos_to_appear : Vector2 , areas_to_place : Array[Ar
 			index = index + 1
 			#Reset Line2D
 			currentLineVisualizer.clear_points()
-			for point in range(0,VerticesPerNote):
+			for point in range(0,VerticesPerNote+1):
 				currentLineVisualizer.add_point(Vector2(0,0))
 			#Set vertices to visualize the Note
 			var mid_angle = key_areas[i][j].angle
-			var start_angle = mid_angle-success_threshold/2
-			var angle_increment: float = success_threshold / VerticesPerNote
-			for point in range(VerticesPerNote):
+			note_success_threshold = key_areas[i][j].rad_width
+			var start_angle = mid_angle-(note_success_threshold/2)
+			var angle_increment: float = note_success_threshold / VerticesPerNote
+			for point in range(VerticesPerNote+1):
 				var angle: float = start_angle + (point * angle_increment)
 				var x: float = 100 * cos(angle)
 				var y: float = 100 * sin(angle)
 				currentLineVisualizer.set_point_position(point,Vector2(x, y))
+			currentLineVisualizer.width = NoteDefaultWidth
 			currentLineVisualizer.scale = Vector2(0,0)
+	note_success_threshold = key_areas[0][0].rad_width
 
 func show_keynotes(index):
 	TimeToStartTimer.start()
+	note_success_threshold = key_areas[index][0].rad_width
 	for i in range(key_areas[index].size()):
 		var local_tween = create_tween()
 		local_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
@@ -156,6 +165,7 @@ func hide_key(key_to_hide, success):
 	next_line_index = next_line_index + 1 
 	#Next Note to hit, if 0 the current set is finished
 	next_note_index = (next_note_index + 1) % key_areas[current_set_index].size()
+	note_success_threshold = key_areas[current_set_index][next_note_index].rad_width
 
 func hide_minigame():
 	var local_tween = create_tween()
