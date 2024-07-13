@@ -17,6 +17,7 @@ var next_line_index : int = 0
 var current_set_index : int = 0
 var playing : bool = false
 var note_set_finished : bool = false
+var minigame_finished : bool = false
 
 const VerticesCirclePath = 20
 const VerticesPerNote = 5
@@ -52,15 +53,16 @@ func _process(delta):
 			var time = clamp(3 * (TimeToStartTimer.time_left/timer_count_time)+1, 0, 3)
 			TimeToStartLeft.text = str(time as int)
 	else:
-		
 		rotate_indicator(delta)
 		check_key_press()
 
 func rotate_indicator(delta):
 	#Check for missed notes
 	var player_radians = PlayerIndicator.progress_ratio * (2*PI)
-	if not note_set_finished and player_radians - (note_success_threshold/2) > key_areas[current_set_index][next_note_index].angle:
-		hide_key(KeyLinePaths[next_line_index],true)
+	if not minigame_finished and not note_set_finished and player_radians - (note_success_threshold/2) > key_areas[current_set_index][next_note_index].angle:
+		hide_key(KeyLinePaths[next_line_index],false)
+		minigame_finished = true
+		hide_minigame(false)
 		#next set of notes
 		if next_note_index == 0:
 			note_set_finished = true		
@@ -73,7 +75,7 @@ func rotate_indicator(delta):
 		current_set_index = (current_set_index+1) % key_areas.size()	
 		#Next set of notes, if 0 the minigame is finished
 		if current_set_index == 0:
-			hide_minigame()
+			hide_minigame(true)
 		else:
 			note_set_finished = false
 	PlayerIndicator.progress_ratio += rotation_delta
@@ -83,16 +85,25 @@ func check_key_press():
 	var rad = PlayerIndicator.progress_ratio * (2*PI)
 	var min_success_val = key_areas[current_set_index][next_note_index].angle - (note_success_threshold/2)
 	var max_success_val = key_areas[current_set_index][next_note_index].angle + (note_success_threshold/2)
-	if rad > min_success_val and rad < max_success_val:
+	if not minigame_finished and rad > min_success_val and rad < max_success_val:
 		KeyLinePaths[next_line_index].width = NoteHitableWidth
 		#Note Hit
 		if Input.is_action_just_pressed("ui_accept"):
 			hide_key(KeyLinePaths[next_line_index],true)
+			#next set of notes
+			if next_note_index == 0:
+				note_set_finished = true		
+				var next_set = (current_set_index+1) % key_areas.size()
+				if next_set != 0:
+					show_keynotes(next_set)		
+				else:
+					hide_minigame(true)
 
 func prepare_minigame(global_pos_to_appear : Vector2 , areas_to_place : Array[Array], starting_time : int = 1):
 	global_position = global_pos_to_appear
 	playing = false
 	note_set_finished = false
+	minigame_finished = false
 	PlayerIndicator.progress_ratio = 0
 	
 	#Notes related, set, line2d index...
@@ -142,6 +153,7 @@ func prepare_minigame(global_pos_to_appear : Vector2 , areas_to_place : Array[Ar
 				var y: float = 100 * sin(angle)
 				currentLineVisualizer.set_point_position(point,Vector2(x, y))
 			currentLineVisualizer.width = NoteDefaultWidth
+			currentLineVisualizer.default_color = Color.BLUE
 			currentLineVisualizer.scale = Vector2(0,0)
 	note_success_threshold = key_areas[0][0].rad_width
 
@@ -166,10 +178,18 @@ func hide_key(key_to_hide, success):
 	#Next Note to hit, if 0 the current set is finished
 	next_note_index = (next_note_index + 1) % key_areas[current_set_index].size()
 	note_success_threshold = key_areas[current_set_index][next_note_index].rad_width
+	if success:
+		key_to_hide.default_color = Color.GREEN
+	else:
+		key_to_hide.default_color = Color.RED
 
-func hide_minigame():
-	var local_tween = create_tween()
-	local_tween.tween_property(self, "scale", Vector2.ZERO, 0.75)
+func hide_minigame(minigame_won):
+	if(minigame_won):
+		var local_tween = create_tween()
+		local_tween.tween_property(self, "scale", Vector2.ZERO, 0.75)
+	else:
+		var local_tween = create_tween()
+		local_tween.tween_property(self, "scale", Vector2.ZERO, 0.75)
 
 func start_timer_ended():
 	playing = true 
