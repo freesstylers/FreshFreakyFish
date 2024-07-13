@@ -31,20 +31,54 @@ closed = true
 [node name="KeyLinePaths" type="Node2D" parent="."]
 
 [node name="KeyLine1" type="Line2D" parent="KeyLinePaths"]
-points = PackedVector2Array(37, -117, 82, -109)
+rotation = -1.5708
+points = PackedVector2Array(37, -117, 82, -109, 71, -16)
 default_color = Color(1, 0, 0, 1)
 
 [node name="KeyLine2" type="Line2D" parent="KeyLinePaths"]
-default_color = Color(1, 0, 0, 0)
+rotation = -1.5708
+points = PackedVector2Array(-86, -56, -37, -25)
+default_color = Color(1, 0, 0, 1)
 
 [node name="KeyLine3" type="Line2D" parent="KeyLinePaths"]
-default_color = Color(1, 0, 0, 0)
+rotation = -1.5708
+points = PackedVector2Array(-86, 51, -28, 34)
+default_color = Color(1, 0, 0, 1)
 
 [node name="KeyLine4" type="Line2D" parent="KeyLinePaths"]
-default_color = Color(1, 0, 0, 0)
+rotation = -1.5708
+points = PackedVector2Array(51, 97, 7, 51)
+default_color = Color(1, 0, 0, 1)
 
 [node name="KeyLine5" type="Line2D" parent="KeyLinePaths"]
-default_color = Color(1, 0, 0, 0)
+rotation = -1.5708
+points = PackedVector2Array(120, 4, 44, 4)
+default_color = Color(1, 0, 0, 1)
+
+[node name="KeyLine6" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
+points = PackedVector2Array(37, 39, 80, 75)
+default_color = Color(1, 0, 0, 1)
+
+[node name="KeyLine7" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
+points = PackedVector2Array(-133, 3, -67, -8)
+default_color = Color(1, 0, 0, 1)
+
+[node name="KeyLine8" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
+points = PackedVector2Array(-39, 111, -9, 59)
+default_color = Color(1, 0, 0, 1)
+
+[node name="KeyLine9" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
+points = PackedVector2Array(-64, -125, 12, -67)
+default_color = Color(1, 0, 0, 1)
+
+[node name="KeyLine10" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
+points = PackedVector2Array(47, 19, 113, 71)
+default_color = Color(1, 0, 0, 1)
 
 [node name="TimeToStartLabel" type="Label" parent="."]
 offset_left = -24.0
