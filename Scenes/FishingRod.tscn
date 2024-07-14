@@ -10,12 +10,12 @@ position = Vector2(4, 8)
 script = ExtResource("1_1xkbq")
 
 [node name="RodVisualizer" type="Sprite2D" parent="."]
-position = Vector2(1567, 752)
+visible = false
+position = Vector2(243, 87)
 texture = ExtResource("2_jsl3k")
 
 [node name="ShotReticle" type="Sprite2D" parent="."]
-position = Vector2(945, 512)
 texture = ExtResource("3_1pyff")
 
 [node name="CatchMinigame" parent="." instance=ExtResource("4_c0scg")]
-position = Vector2(1164, 817)
+position = Vector2(0, 0)

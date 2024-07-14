@@ -233,6 +233,7 @@ func hide_key(key_to_hide, success):
 		key_to_hide.default_color = Color.RED
 
 func hide_minigame(minigame_won):
+	playing = false
 	if(minigame_won):
 		var local_tween = create_tween()
 		local_tween.tween_property(self, "scale", Vector2.ZERO, 0.75)

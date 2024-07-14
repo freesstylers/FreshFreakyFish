@@ -19,6 +19,7 @@ var actualFish : Fish = null
 func _ready():
 	
 	GameManagerScript.connect("game_over", _on_won_minigame)
+	GameManagerScript.game_start_playing.connect(Fish_Hook_Eaten)	
 	
 	for i in totalNumFish:
 		var newfish : Fish
@@ -123,3 +124,8 @@ func findFishIndex(fish : Fish):
 	for i in fishArray.size():
 		if fish.Name == fishArray[i].Name:
 			return i
+
+func Fish_Hook_Eaten():
+	#Random fish 
+	var fish = getFish()
+	GameManagerScript.game_fish_selected.emit(fish.Difficulty)

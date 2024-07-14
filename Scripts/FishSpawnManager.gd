@@ -15,6 +15,7 @@ var current_fish_count: int = 0
 
 func _ready():
 	spawn_initial_fish()
+	GameManagerScript.game_over.connect(fish_caught)
 
 func _process(delta):
 	if current_fish_count < min_fish_count:
@@ -43,5 +44,11 @@ func get_random_spawn_position():
 		return Vector2.ZERO
 	return water_body.get_random_position_inside_polygon()
 
-func fish_caught():
-	current_fish_count -= 1
+func fish_caught(caught : bool ):
+	if caught:
+		current_fish_count -= 1
+
+func on_spawn_timer_finished():
+	var space_left = max_fish_count - current_fish_count
+	for i in range(space_left):
+		spawn_fish()

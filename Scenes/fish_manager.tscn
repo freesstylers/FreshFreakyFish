@@ -17,5 +17,5 @@ stream = ExtResource("3_laiaw")
 [node name="OldFishSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_b3c1o")
 
-[node name="FailedCatch" type="AudioStreamPlayer" parent="."]
+[node name="FailedCatchSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4r83t")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca6rfsyxbn0va"]
+
+[ext_resource type="PackedScene" uid="uid://bpabwbo2u6s1y" path="res://Scenes/Environment/WaterBody.tscn" id="1_q2afw"]
+[ext_resource type="PackedScene" uid="uid://liwmkvsomj42" path="res://Scenes/fish_manager.tscn" id="2_dfvys"]
+[ext_resource type="Script" path="res://Scripts/FishSpawnManager.gd" id="3_imkes"]
+[ext_resource type="PackedScene" uid="uid://r26svdb4yxlv" path="res://Scenes/Fishes/FishBase.tscn" id="4_ph0w5"]
+[ext_resource type="PackedScene" uid="uid://b3ko1knhdsvy0" path="res://Scenes/FishingRod.tscn" id="5_v2yf8"]
+
+[node name="GameplayScene" type="Node2D"]
+
+[node name="WaterBody" parent="." instance=ExtResource("1_q2afw")]
+position = Vector2(702, 328)
+
+[node name="FishManager" parent="." instance=ExtResource("2_dfvys")]
+position = Vector2(407, 798)
+
+[node name="FishSpawnManager" type="Node2D" parent="." node_paths=PackedStringArray("water_body")]
+script = ExtResource("3_imkes")
+fish_scene = ExtResource("4_ph0w5")
+water_body = NodePath("../WaterBody")
+initial_fish_count = 3
+min_fish_count = 2
+max_fish_count = 5
+
+[node name="FishesSpawnedPool" type="Node2D" parent="FishSpawnManager"]
+
+[node name="SpawnRate" type="Timer" parent="FishSpawnManager"]
+wait_time = 10.0
+autostart = true
+
+[node name="FishingRod" parent="." node_paths=PackedStringArray("water_body", "fishes_spawn_pool") instance=ExtResource("5_v2yf8")]
+position = Vector2(743, 389)
+water_body = NodePath("../WaterBody")
+fishes_spawn_pool = NodePath("../FishSpawnManager/FishesSpawnedPool")
+
+[connection signal="timeout" from="FishSpawnManager/SpawnRate" to="FishSpawnManager" method="on_spawn_timer_finished"]

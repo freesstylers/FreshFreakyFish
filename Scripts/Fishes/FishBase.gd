@@ -17,21 +17,35 @@ var direction: Vector2 = Vector2.ZERO
 var current_rotation: float = 0.0
 var water_body: WaterBody = null
 
+var hunting : bool = false
+var hunting_pos : Vector2 = Vector2.ZERO
+var hunting_distance : float = 10
+
 @onready var FishSprite : Sprite2D = $FishSprite
+@onready var MouthNode : Node2D = $Mouth
 
 func _ready():
 	spawn()
 
 func _process(delta):
-	# Move towards wander destination
-	global_position += direction.normalized() * speed * delta
-	var target_rotation = direction.angle() + PI / 2
-	current_rotation = lerp_angle(current_rotation, target_rotation, rotation_speed * delta)
-	rotation = current_rotation
+	if not hunting:
+		# Move towards wander destination
+		global_position += direction.normalized() * speed * delta
+		var target_rotation = direction.angle() + PI / 2
+		current_rotation = lerp_angle(current_rotation, target_rotation, rotation_speed * delta)
+		rotation = current_rotation
 
-	# Check if reached target position
-	if global_position.distance_to(target_position) < TARGET_REACHED_THRESHOLD:
-		set_new_target()
+		# Check if reached target position
+		if global_position.distance_to(target_position) < TARGET_REACHED_THRESHOLD:
+			set_new_target()
+	else:
+		var hunting_dir = hunting_pos-global_position
+		# Move towards wander destination
+		global_position += hunting_dir.normalized() * speed * delta
+		var target_rotation = hunting_dir.angle() + PI / 2
+		current_rotation = lerp_angle(current_rotation, target_rotation, rotation_speed * delta)
+		rotation = current_rotation
+		Check_Hook()
 
 func set_water_body(water_body_node):
 	water_body = water_body_node
@@ -59,3 +73,13 @@ func spawn():
 	var local_tween = create_tween()
 	FishSprite.modulate.a = 0
 	local_tween.tween_property(FishSprite, "modulate:a", 1, randf_range(MIN_SPAWN_FADE_IN_DURATION, MAX_SPAWN_FADE_IN_DURATION))
+
+
+func Hunt(hunting_dest):
+	hunting = true
+	hunting_pos = hunting_dest
+
+func Check_Hook():
+	if (MouthNode.global_position - hunting_pos).length() < hunting_distance:
+		GameManagerScript.game_start_playing.emit()
+		queue_free()
