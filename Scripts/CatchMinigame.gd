@@ -1,7 +1,7 @@
 class_name CatchMinigame
 extends Node2D
 
-@export var rotation_speed: float = 0.30  # Radians per second
+@export var rotation_speed: float = 0.10  # Radians per second
 @export var key_areas: Array[Array] = []  # Notes each time the minigame is played
 @export var note_success_threshold: float = deg_to_rad(45.0) #Size of the default note
 
@@ -24,6 +24,46 @@ const VerticesPerNote = 5
 const NoteDefaultWidth = 15
 const NoteHitableWidth = 20
 
+#LEVEL 1: Facil 1ronda /1 nota grande
+#LEVEL 2: 2 rondas un poco más pequeña 1 nota
+#Level 3: 3 rondas 2 notas cada una 
+#Level 4: 5 rondas 2 notas cada una pequeñas rápido 
+
+var ROTATIONVELOCITIES : Array[float] = [0.25,0.4,0.5,0.75]
+var NUMSETSPERLEVEL : Array[int] = [1,2,3,5]
+
+#LEVEL 1 LEVELS
+var LEVEL1SETS : Array[Array] = [
+	[{angle=deg_to_rad(90), rad_width = deg_to_rad(75)} ],
+	[{angle=deg_to_rad(150), rad_width = deg_to_rad(75)} ],
+	[{angle=deg_to_rad(200), rad_width = deg_to_rad(75)} ],
+	[{angle=deg_to_rad(300), rad_width = deg_to_rad(75)} ],
+	]
+
+var LEVEL2SETS : Array[Array] = [
+	[{angle=deg_to_rad(90), rad_width = deg_to_rad(65)} ], 
+	[{angle=deg_to_rad(90), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(150), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(200), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(300), rad_width = deg_to_rad(65)} ],
+	]
+	
+var LEVEL3SETS : Array[Array] = [
+	[{angle=deg_to_rad(90), rad_width = deg_to_rad(65)} ], 
+	[{angle=deg_to_rad(90), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(150), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(200), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(300), rad_width = deg_to_rad(65)} ],
+	]
+	
+var LEVEL4SETS : Array[Array] = [
+	[{angle=deg_to_rad(40), rad_width = deg_to_rad(45)}, {angle=deg_to_rad(90), rad_width = deg_to_rad(65)} ], 
+	[{angle=deg_to_rad(40), rad_width = deg_to_rad(45)}, {angle=deg_to_rad(90), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(40), rad_width = deg_to_rad(45)}, {angle=deg_to_rad(150), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(40), rad_width = deg_to_rad(45)}, {angle=deg_to_rad(200), rad_width = deg_to_rad(65)} ],
+	[{angle=deg_to_rad(40), rad_width = deg_to_rad(45)},{angle=deg_to_rad(300), rad_width = deg_to_rad(65)} ],
+	]
+
 func _ready():
 	#Reset Line2D and create a dircle
 	CirclePathVisualizer.clear_points()
@@ -40,11 +80,8 @@ func _ready():
 	for i in range($KeyLinePaths.get_child_count()):
 		KeyLinePaths.append($KeyLinePaths.get_child(i))
 		KeyLinePaths[i].clear_points()
-		
-	prepare_minigame(Vector2(500,300), [
-		[{angle=deg_to_rad(90), rad_width = deg_to_rad(25)}, {angle=deg_to_rad(180), rad_width = deg_to_rad(45)}, {angle=deg_to_rad(270), rad_width = deg_to_rad(75)}],
-		[{angle=deg_to_rad(140), rad_width = deg_to_rad(90)}, {angle=deg_to_rad(200), rad_width = deg_to_rad(10)}]
-		])
+	
+	scale = Vector2.ZERO	
 
 func _process(delta):
 	#Display time left to start the minigame
@@ -54,7 +91,6 @@ func _process(delta):
 			TimeToStartLeft.text = str(time as int)
 	else:
 		rotate_indicator(delta)
-		check_key_press()
 
 func rotate_indicator(delta):
 	#Check for missed notes
@@ -88,18 +124,17 @@ func check_key_press():
 	if not minigame_finished and rad > min_success_val and rad < max_success_val:
 		KeyLinePaths[next_line_index].width = NoteHitableWidth
 		#Note Hit
-		if Input.is_action_just_pressed("ui_accept"):
-			hide_key(KeyLinePaths[next_line_index],true)
-			#next set of notes
-			if next_note_index == 0:
-				note_set_finished = true		
-				var next_set = (current_set_index+1) % key_areas.size()
-				if next_set != 0:
-					show_keynotes(next_set)		
-				else:
-					hide_minigame(true)
+		hide_key(KeyLinePaths[next_line_index],true)
+		#next set of notes
+		if next_note_index == 0:
+			note_set_finished = true		
+			var next_set = (current_set_index+1) % key_areas.size()
+			if next_set != 0:
+				show_keynotes(next_set)		
+			else:
+				hide_minigame(true)
 
-func prepare_minigame(global_pos_to_appear : Vector2 , areas_to_place : Array[Array], starting_time : int = 1):
+func prepare_minigame(global_pos_to_appear,level, starting_time = 1):
 	global_position = global_pos_to_appear
 	playing = false
 	note_set_finished = false
@@ -107,7 +142,21 @@ func prepare_minigame(global_pos_to_appear : Vector2 , areas_to_place : Array[Ar
 	PlayerIndicator.progress_ratio = 0
 	
 	#Notes related, set, line2d index...
-	key_areas = areas_to_place
+	var sets_source : Array[Array]
+	match level:
+		#Level 1, only one note big, slow and easy
+		1:
+			sets_source = LEVEL1SETS
+		2:
+			sets_source = LEVEL2SETS
+		3:
+			sets_source = LEVEL3SETS
+		4:
+			sets_source = LEVEL4SETS
+
+	rotation_speed = ROTATIONVELOCITIES[level-1]
+	for set_index in range(NUMSETSPERLEVEL[level-1]):
+		key_areas.append(sets_source[randi()%sets_source.size()])
 	current_set_index = 0
 	next_note_index = 0
 	next_line_index = 0
@@ -187,9 +236,13 @@ func hide_minigame(minigame_won):
 	if(minigame_won):
 		var local_tween = create_tween()
 		local_tween.tween_property(self, "scale", Vector2.ZERO, 0.75)
+		local_tween.tween_callback(func():
+			GameManagerScript.game_over.emit(minigame_won))
 	else:
 		var local_tween = create_tween()
 		local_tween.tween_property(self, "scale", Vector2.ZERO, 0.75)
+		local_tween.tween_callback(func():
+			GameManagerScript.game_over.emit(minigame_won))		
 
 func start_timer_ended():
 	playing = true 
