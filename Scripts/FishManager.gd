@@ -11,6 +11,7 @@ var distinctFishCaught : int = 0
 var fishArray : Array
 
 func _ready():
+	
 	for i in totalNumFish:
 		var newfish : Fish
 		if i == totalNumFish-1:
@@ -51,7 +52,8 @@ func normalizeProbabilities():
 	for i in totalNumFish-1:
 		fishArray[i].Probability += resto*fishArray[i].Probability
 		
-func _on_catch_pressed():
+func getFish():
+	
 	var alreadyCaught : bool = false
 	var fishCaught : Fish = null
 	
@@ -74,7 +76,7 @@ func _on_catch_pressed():
 					distinctFishCaught+=1
 					fishArray[i].Caught = true
 					if !GameManagerScript.save_dict.has(fishArray[i].Name):
-						GameManagerScript.save_dict[fishArray[i].Name] = true									
+						GameManagerScript.save_dict[fishArray[i].Name] = true
 					recalculateProbabilities()
 					
 				fishCaught = fishArray[i]
@@ -88,4 +90,11 @@ func _on_catch_pressed():
 		if ran == 1:
 			fishCaught = fishArray[totalNumFish-1]
 			
+	return fishCaught
+		
+		
+func _on_catch_pressed():
+	
+	var fishCaught : Fish = getFish()
+	
 	print("He pescado un " + tr(fishCaught.Name))

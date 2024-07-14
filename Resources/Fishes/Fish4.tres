@@ -9,3 +9,4 @@ Name = "Fish4_Name"
 Description = "Fish4_Desc"
 Sprite = ExtResource("1_i0x2f")
 IsColosal = false
+Difficulty = 1
