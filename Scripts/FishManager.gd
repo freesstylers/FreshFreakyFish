@@ -1,16 +1,24 @@
-extends Node
+extends Sprite2D
 
 @export var totalNumFish : int = 13
 
 # Esto determina lo picuda que es la campana de probabilidades, cuanto mas cercana a 0 mas picuda
 @export var variance : float = 1.2
 
+@onready var newFishSound : AudioStreamPlayer = $NewFishSound
+@onready var oldFishSound : AudioStreamPlayer = $OldFishSound
+@onready var failedCatchSound : AudioStreamPlayer = $FailedCatchSound
+
 var totalFishCaught : int = 0
 var distinctFishCaught : int = 0
 
 var fishArray : Array
 
+var actualFish : Fish = null
+
 func _ready():
+	
+	GameManagerScript.connect("game_over", _on_won_minigame)
 	
 	for i in totalNumFish:
 		var newfish : Fish
@@ -70,14 +78,6 @@ func getFish():
 			# Lo hacemos de esta manera para que las probabilidades actuen como pesos
 			# Y lo multiplicamos por 10000 para que haya precision de hasta dos decimales
 			if randoNum > prevProb*10000 and randoNum < fishArray[i].Probability*10000:
-				
-				#Si es nuevo, lo marcamos y recalculamos probabilidades
-				if fishArray[i].Caught == false:
-					distinctFishCaught+=1
-					fishArray[i].Caught = true
-					if !GameManagerScript.save_dict.has(fishArray[i].Name):
-						GameManagerScript.save_dict[fishArray[i].Name] = true
-					recalculateProbabilities()
 					
 				fishCaught = fishArray[i]
 
@@ -90,11 +90,36 @@ func getFish():
 		if ran == 1:
 			fishCaught = fishArray[totalNumFish-1]
 			
+	actualFish = fishCaught
 	return fishCaught
-		
-		
-func _on_catch_pressed():
 	
-	var fishCaught : Fish = getFish()
-	
-	print("He pescado un " + tr(fishCaught.Name))
+func _on_won_minigame(won):
+	if won:
+		texture = actualFish.Sprite
+		var local_tween = create_tween()
+		local_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+		local_tween.tween_property(self, "scale", Vector2(1,1), 1.0)
+		local_tween.tween_callback(func():
+			var local_tween2 = create_tween()
+			local_tween2.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			local_tween2.tween_property(self, "scale", Vector2(0,0), 1.0)
+			)
+				
+		var i = findFishIndex(actualFish)
+		#Si es nuevo, lo marcamos y recalculamos probabilidades
+		if fishArray[i].Caught == false:
+			distinctFishCaught+=1
+			fishArray[i].Caught = true
+			if !GameManagerScript.save_dict.has(fishArray[i].Name):
+				GameManagerScript.save_dict[fishArray[i].Name] = true
+			recalculateProbabilities()
+			newFishSound.play()
+		else:
+			oldFishSound.play()
+	else:
+		failedCatchSound.play()
+			
+func findFishIndex(fish : Fish):
+	for i in fishArray.size():
+		if fish.Name == fishArray[i].Name:
+			return i

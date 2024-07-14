@@ -8,5 +8,5 @@ script = ExtResource("1_ihaqv")
 Name = "Fish13_Name"
 Description = "Fish13_Desc"
 Sprite = ExtResource("1_hhqkq")
-IsColosal = false
+IsColosal = true
 Difficulty = 4

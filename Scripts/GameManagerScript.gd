@@ -13,7 +13,7 @@ var RNG = RandomNumberGenerator.new()
 #Signals
 #signal game_init_everything()
 #signal game_start_playing()
-#signal game_over(playerDead : bool)
+signal game_over(playerDead : bool)
 
 #End Globals
 
