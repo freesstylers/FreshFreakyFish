@@ -16,6 +16,7 @@ extends Node2D
 
 var playing_minigame : bool = false
 var hook_thrown : bool = false
+var on_play_scene : bool = true
 var scare_fish_distance : float = 200
 var seduce_fish_for_hunt_distance : float = 350
 
@@ -26,8 +27,13 @@ func _ready():
 	
 	GameManagerScript.game_over.connect(on_minigame_finished)
 	GameManagerScript.game_fish_selected.connect(on_fish_selected)
+	GameManagerScript.go_to_play_scene.connect(on_go_to_play_scene)
+	GameManagerScript.go_back_to_menu.connect(on_go_to_menu)
 
 func _process(delta):
+	if not on_play_scene:
+		return
+	
 	if not hook_thrown:
 		# Move reticle
 		var input_direction = Vector2.ZERO
@@ -122,3 +128,11 @@ func on_minigame_finished(minigame_won):
 	hook_thrown = false
 	playing_minigame = false
 	ShotReticle2.visible = false
+
+func on_go_to_menu():
+	on_play_scene = false
+	if hook_thrown:
+		recover_hook()
+	
+func on_go_to_play_scene():
+	on_play_scene = true

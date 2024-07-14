@@ -11,9 +11,11 @@ func _ready():
 
 func _on_play_pressed():
 	posToMoveTo = gamepos.position
+	GameManagerScript.go_to_play_scene.emit()
 	
 func _process(delta):
 	position = lerp(position, posToMoveTo, 0.05)
 
 func _on_back_pressed():
 	posToMoveTo = mainpos.position
+	GameManagerScript.go_back_to_menu.emit()

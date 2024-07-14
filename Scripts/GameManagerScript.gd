@@ -16,6 +16,8 @@ signal game_start_playing()
 signal game_over(playerDead : bool)
 signal game_fish_selected(level : int)
 signal hook_recovered()
+signal go_back_to_menu()
+signal go_to_play_scene()
 #End Globals
 
 
