@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://d4btjkw6cacqd"]
 
 [ext_resource type="Texture2D" uid="uid://dp6vagjkkrocj" path="res://Assets/Sprites/book_sheet2.png" id="1_gaaq8"]
-[ext_resource type="Theme" uid="uid://c2ykx5j3i1k0u" path="res://Assets/UI/UI_General.tres" id="1_m5e2w"]
+[ext_resource type="Theme" uid="uid://c2ykx5j3i1k0u" path="res://Assets/UI/Themes/UI_General.tres" id="1_m5e2w"]
 [ext_resource type="Script" path="res://Scripts/UI_Manager.gd" id="1_utbpt"]
 [ext_resource type="PackedScene" uid="uid://b7gpbgffuisqv" path="res://Assets/Prefabs/fish_entry.tscn" id="2_oiju4"]
 [ext_resource type="Resource" uid="uid://cau237dfv4y1" path="res://Resources/Fishes/Fish14.tres" id="4_8vygp"]
