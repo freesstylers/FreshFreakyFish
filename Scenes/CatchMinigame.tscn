@@ -81,24 +81,34 @@ points = PackedVector2Array(47, 19, 113, 71)
 default_color = Color(1, 0, 0, 1)
 
 [node name="KeyLine11" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine12" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine13" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine14" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine15" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine16" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine17" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine18" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine19" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="KeyLine20" type="Line2D" parent="KeyLinePaths"]
+rotation = -1.5708
 
 [node name="TimeToStartLabel" type="Label" parent="."]
 offset_left = -24.0
