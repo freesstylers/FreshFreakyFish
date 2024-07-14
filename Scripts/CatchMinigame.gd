@@ -140,7 +140,8 @@ func rotate_indicator(delta):
 		current_set_index = (current_set_index+1) % key_areas.size()	
 		#Next set of notes, if 0 the minigame is finished
 		if current_set_index == 0:
-			hide_minigame(true)
+			pass
+			#hide_minigame(true)
 		else:
 			note_set_finished = false
 			show_keynotes(current_set_index)	

@@ -8,9 +8,12 @@ extends Node2D
 @onready var RodVisualizer : Sprite2D = $RodVisualizer
 @onready var ShotReticle : Sprite2D = $ShotReticle
 @onready var CatchingMinigame : CatchMinigame = $CatchMinigame
+@onready var Seduce_fished_timer : Timer = $Call_Fished_For_Hunt_Timer
 
 var playing_minigame : bool = false
 var hook_thrown : bool = false
+var scare_fish_distance : float = 200
+var seduce_fish_for_hunt_distance : float = 350
 
 func _ready():
 	GameManagerScript.game_over.connect(on_minigame_finished)
@@ -35,8 +38,7 @@ func _process(delta):
 				ShotReticle.global_position = new_position
 		
 		if Input.is_action_just_pressed("ui_accept") and CatchingMinigame:
-			hook_thrown = true
-			find_closest_fish()
+			throw_hook()
 	if playing_minigame:
 		if Input.is_action_just_pressed("ui_accept") and CatchingMinigame:
 			CatchingMinigame.check_key_press()
@@ -49,13 +51,28 @@ func is_inside_water_body(point: Vector2) -> bool:
 func set_water_body(water_body_node: WaterBody):
 	water_body = water_body_node
 
-func find_closest_fish():
-	var index = randi()%fishes_spawn_pool.get_child_count()
-	var fish_selected = fishes_spawn_pool.get_child(index) as FishBase
-	fish_selected.Hunt(ShotReticle.global_position)
+func throw_hook():
+	Seduce_fished_timer.start()
+	hook_thrown = true
+	var fish_count = fishes_spawn_pool.get_child_count()
+	for fish_index in range(fish_count):
+		var current_fish = fishes_spawn_pool.get_child(fish_index)
+		if (current_fish.global_position - ShotReticle.global_position).length() < scare_fish_distance:
+			var dest_pos = water_body.get_random_position_inside_polygon()
+			while (dest_pos - ShotReticle.global_position).length() < scare_fish_distance:
+				dest_pos = water_body.get_random_position_inside_polygon()
+			(current_fish as FishBase).Get_Scared(dest_pos)
+
+func on_call_fished_for_hunt_timer_ended():
+	var fish_count = fishes_spawn_pool.get_child_count()
+	for fish_index in range(fish_count):
+		var current_fish = fishes_spawn_pool.get_child(fish_index)
+		if (current_fish.global_position - ShotReticle.global_position).length() < seduce_fish_for_hunt_distance:
+			(current_fish as FishBase).Hunt(ShotReticle.global_position)
 
 func on_fish_selected(difficulty : int):
 	playing_minigame = true
+	Seduce_fished_timer.stop()
 	CatchingMinigame.prepare_minigame(ShotReticle.global_position, difficulty)
 
 func on_minigame_finished(minigame_won):

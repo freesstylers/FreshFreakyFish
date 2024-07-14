@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3ko1knhdsvy0"]
+[gd_scene load_steps=6 format=3 uid="uid://b3ko1knhdsvy0"]
 
 [ext_resource type="Script" path="res://Scripts/FishingRod.gd" id="1_1xkbq"]
 [ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="2_jsl3k"]
 [ext_resource type="Texture2D" uid="uid://5qklr3a1guu5" path="res://Assets/Sprites/target.png" id="3_1pyff"]
 [ext_resource type="PackedScene" uid="uid://bkcw7fcmn3sa1" path="res://Scenes/CatchMinigame.tscn" id="4_c0scg"]
+
+[sub_resource type="Curve" id="Curve_agxjw"]
+_data = [Vector2(0, 0.0879121), 0.0, 0.0, 0, 0, Vector2(1, 0.450549), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="FishingRod" type="Node2D"]
 position = Vector2(4, 8)
@@ -11,11 +15,25 @@ script = ExtResource("1_1xkbq")
 
 [node name="RodVisualizer" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(243, 87)
+position = Vector2(1774, 723)
+rotation = -0.0942703
+scale = Vector2(0.35, 6.525)
 texture = ExtResource("2_jsl3k")
+
+[node name="Line2D" type="Line2D" parent="RodVisualizer"]
+points = PackedVector2Array(-1772.91, -19.9214, -1291.9, -25.7946, -927.083, -30.8717, -646.795, -36.8393, -190.233, -48.3784, 4.10156, -60.9395)
+width_curve = SubResource("Curve_agxjw")
+
+[node name="RodStart" type="Node2D" parent="RodVisualizer"]
+position = Vector2(-10.0062, -62.7044)
 
 [node name="ShotReticle" type="Sprite2D" parent="."]
 texture = ExtResource("3_1pyff")
 
 [node name="CatchMinigame" parent="." instance=ExtResource("4_c0scg")]
 position = Vector2(0, 0)
+
+[node name="Call_Fished_For_Hunt_Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Call_Fished_For_Hunt_Timer" to="." method="on_call_fished_for_hunt_timer_ended"]

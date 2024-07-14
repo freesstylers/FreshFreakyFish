@@ -38,3 +38,4 @@ position = Vector2(-15, -85)
 position = Vector2(-37, -58)
 
 [node name="Mouth" type="Node2D" parent="."]
+position = Vector2(0, -29)

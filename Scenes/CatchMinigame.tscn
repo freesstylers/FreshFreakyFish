@@ -10,7 +10,7 @@ _data = {
 point_count = 5
 
 [node name="CatchMinigame" type="Node2D"]
-position = Vector2(399, 131)
+position = Vector2(11, 10)
 script = ExtResource("1_tv3oe")
 
 [node name="MinigamePath" type="Path2D" parent="."]
@@ -20,7 +20,7 @@ curve = SubResource("Curve2D_u12mx")
 position = Vector2(0, -100)
 
 [node name="Sprite2D" type="Sprite2D" parent="MinigamePath/PlayerIndicator"]
-scale = Vector2(0.22, 0.22)
+scale = Vector2(-0.05, 0.2)
 texture = ExtResource("1_2r5t2")
 
 [node name="LinePath" type="Line2D" parent="."]
