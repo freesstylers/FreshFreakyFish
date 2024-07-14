@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca6rfsyxbn0va"]
+[gd_scene load_steps=7 format=3 uid="uid://ca6rfsyxbn0va"]
 
 [ext_resource type="PackedScene" uid="uid://bpabwbo2u6s1y" path="res://Scenes/WaterBody.tscn" id="1_q2afw"]
 [ext_resource type="PackedScene" uid="uid://liwmkvsomj42" path="res://Scenes/fish_manager.tscn" id="2_dfvys"]
 [ext_resource type="Script" path="res://Scripts/FishSpawnManager.gd" id="3_imkes"]
 [ext_resource type="PackedScene" uid="uid://r26svdb4yxlv" path="res://Scenes/Fishes/FishBase.tscn" id="4_ph0w5"]
 [ext_resource type="PackedScene" uid="uid://b3ko1knhdsvy0" path="res://Scenes/FishingRod.tscn" id="5_v2yf8"]
+[ext_resource type="PackedScene" uid="uid://dpgvi4otvrd14" path="res://Shaders/Water/WaterReflection.tscn" id="6_5eifv"]
 
 [node name="GameplayScene" type="Node2D"]
 
@@ -32,5 +33,9 @@ autostart = true
 position = Vector2(743, 389)
 water_body = NodePath("../WaterBody")
 fishes_spawn_pool = NodePath("../FishSpawnManager/FishesSpawnedPool")
+
+[node name="WaterShader" parent="." instance=ExtResource("6_5eifv")]
+position = Vector2(697.5, 319.5)
+scale = Vector2(0.628906, 0.515278)
 
 [connection signal="timeout" from="FishSpawnManager/SpawnRate" to="FishSpawnManager" method="on_spawn_timer_finished"]

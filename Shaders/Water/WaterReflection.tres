@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ppus4ephou25"]
+
+[ext_resource type="Shader" path="res://Shaders/Water/WaterReflection.gdshader" id="1_8n1kw"]
+[ext_resource type="Texture2D" uid="uid://da5kle5h43f7t" path="res://Shaders/Water/Noise.png" id="2_yvgnt"]
+
+[resource]
+shader = ExtResource("1_8n1kw")
+shader_parameter/param1 = Vector2(1, 1)
+shader_parameter/param2 = Vector2(0.4, 0.7)
+shader_parameter/param3 = Vector2(0.2, 0.4)
+shader_parameter/iChannel1 = ExtResource("2_yvgnt")

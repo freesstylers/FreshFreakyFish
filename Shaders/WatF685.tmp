@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://mri06pw7v7t8"]
+
+[ext_resource type="Shader" path="res://Shaders/Water1.gdshader" id="1_1vte5"]
+[ext_resource type="Script" path="res://Shaders/water.gd" id="3_ha13d"]
+[ext_resource type="Texture2D" uid="uid://da5kle5h43f7t" path="res://Shaders/Channel1.png" id="4_t7cjv"]
+[ext_resource type="Texture2D" uid="uid://dpo50tqytjlgw" path="res://Assets/Sprites/Water.png" id="4_xycwv"]
+[ext_resource type="Texture2D" uid="uid://dybd1vwekt1oy" path="res://Shaders/Proyecto nuevo.png" id="5_vyni1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ps85p"]
+shader = ExtResource("1_1vte5")
+shader_parameter/param1 = Vector2(0.5, 0.5)
+shader_parameter/param2 = Vector2(0.6, 0.8)
+shader_parameter/param3 = Vector2(0.7, 0.8)
+shader_parameter/iChannel0 = ExtResource("4_xycwv")
+shader_parameter/iChannel1 = ExtResource("4_t7cjv")
+shader_parameter/iChannel2 = ExtResource("5_vyni1")
+script = ExtResource("3_ha13d")
+
+[node name="Water" type="Sprite2D"]
+material = SubResource("ShaderMaterial_ps85p")
+position = Vector2(871, 641)
+scale = Vector2(1.17307, 1.66241)
+texture = ExtResource("5_vyni1")
+
+[connection signal="item_rect_changed" from="." to="." method="calculatio_aspect_ratio"]

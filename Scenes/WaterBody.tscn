@@ -1,16 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpabwbo2u6s1y"]
 
-[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="1_0gq20"]
 [ext_resource type="Script" path="res://Scripts/WaterBody.gd" id="1_ot2dl"]
+[ext_resource type="Texture2D" uid="uid://tx0e4h6cytu" path="res://Assets/Sprites/WhitePixel.png" id="2_w6p34"]
 
 [node name="WaterBody" type="Node2D"]
 position = Vector2(600, 319)
 script = ExtResource("1_ot2dl")
 
 [node name="WaterBodySprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0.580392, 0.592157, 1)
+position = Vector2(-3.4019, -7.61333)
 rotation = 3.14159
-scale = Vector2(6.35097, -2.82439)
-texture = ExtResource("1_0gq20")
+scale = Vector2(803.56, 397.08)
+texture = ExtResource("2_w6p34")
 
 [node name="WaterBodyArea" type="Area2D" parent="."]
 
