@@ -109,7 +109,7 @@ func _ready():
 		KeyLinePaths[i].clear_points()
 	
 	scale = Vector2.ZERO	
-	prepare_minigame(Vector2(400,400), 4)
+	#prepare_minigame(Vector2(400,400), 4)
 
 func _process(delta):
 	#Display time left to start the minigame
