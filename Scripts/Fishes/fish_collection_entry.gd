@@ -2,21 +2,18 @@ extends Control
 
 @export var notCaught: Fish
 @export var detailedPage: DetailedPage
-var button : Button
+@export var button : Button
 @export var fishReference : Fish
-
-func _ready():
-	button = get_child(0)
 
 func _on_button_pressed():
 	if GameManagerScript.save_dict.has(fishReference.Name):
 		detailedPage.image.texture = fishReference.Sprite
-		detailedPage.fishName.text = tr(fishReference.Name)
-		detailedPage.fishDesc.text = tr(fishReference.Description)
+		detailedPage.fishName.text = "[center]" + tr(fishReference.Name) + "[/center]"
+		detailedPage.fishDesc.text = "[center]" + tr(fishReference.Description) + "[/center]"
 	else: 
 		detailedPage.image.texture = notCaught.Sprite
-		detailedPage.fishName.text = tr(notCaught.Name)
-		detailedPage.fishDesc.text = tr(notCaught.Description)
+		detailedPage.fishName.text = "[center]" + tr(notCaught.Name) + "[/center]"
+		detailedPage.fishDesc.text = "[center]" + tr(notCaught.Description) + "[/center]"
 
 func _on_visibility_changed():
 	

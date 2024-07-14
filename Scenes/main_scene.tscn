@@ -65,18 +65,6 @@ theme = ExtResource("3_xwoam")
 icon = ExtResource("3_lhhm5")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.601563
-anchor_bottom = 0.118519
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_xwoam")
-theme_override_font_sizes/font_size = 100
-text = "Fresh Freaky Fish"
-metadata/_edit_use_anchors_ = true
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 anchor_left = 1.74167
@@ -103,53 +91,75 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-anchor_left = 0.423438
-anchor_top = 0.44537
-anchor_right = 0.579688
-anchor_bottom = 0.778704
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.188021
+anchor_top = 0.111111
+anchor_right = 0.789584
+anchor_bottom = 0.944444
 offset_right = -0.000976563
 offset_bottom = -52.0
 theme = ExtResource("3_xwoam")
-theme_override_constants/separation = 30
+theme_override_constants/separation = 60
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_xwoam")
+theme_override_font_sizes/font_size = 100
+text = "Fresh Freaky Fish"
 metadata/_edit_use_anchors_ = true
 
 [node name="Play" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(400, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_xwoam")
 text = "¡A pescar!"
 
 [node name="How To Play" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(400, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_xwoam")
 text = "How to Play?"
 
 [node name="Credits" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(400, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_xwoam")
 text = "Credits"
 
+[node name="OptionButton" type="OptionButton" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Castellano"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
 [node name="FreeStylers" type="Button" parent="Control"]
-layout_mode = 0
-anchor_left = 0.170313
-anchor_top = 0.709259
-anchor_right = 0.341146
-anchor_bottom = 0.953704
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.166667
+anchor_top = 0.741667
+anchor_right = 0.333334
+anchor_bottom = 0.978704
 theme = ExtResource("10_3ge0y")
 icon = ExtResource("10_u3wvx")
 metadata/_edit_use_anchors_ = true
 
 [node name="Jam" type="Button" parent="Control"]
-layout_mode = 0
-anchor_left = 0.653646
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.664584
 anchor_top = 0.773148
-anchor_right = 0.949479
+anchor_right = 0.960417
 anchor_bottom = 0.951852
 offset_top = 6.10352e-05
 offset_right = 568.0
@@ -160,11 +170,12 @@ icon = ExtResource("11_ku6yw")
 metadata/_edit_use_anchors_ = true
 
 [node name="Twitter" type="Button" parent="Control"]
-layout_mode = 0
-anchor_left = 0.0244795
-anchor_top = 0.777778
-anchor_right = 0.0994799
-anchor_bottom = 0.911111
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0458337
+anchor_top = 0.797222
+anchor_right = 0.120834
+anchor_bottom = 0.930555
 offset_right = -72.0004
 offset_bottom = -72.0
 scale = Vector2(2, 2)

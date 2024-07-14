@@ -1,12 +1,5 @@
-class_name DetailedPage extends Panel
+class_name DetailedPage extends Control
 
-var image : TextureRect
-var fishName : RichTextLabel
-var fishDesc : RichTextLabel
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	image = get_child(0)
-	fishName = get_child(1)
-	fishDesc = get_child(2)
-	pass # Replace with function body.
+@export var image : TextureRect
+@export var fishName : RichTextLabel
+@export var fishDesc : RichTextLabel
