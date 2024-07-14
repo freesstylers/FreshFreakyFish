@@ -9,6 +9,8 @@
 script = ExtResource("1_crri1")
 fish_scene = ExtResource("2_8e62w")
 water_body = NodePath("WaterBody")
+min_fish_count = 2
+max_fish_count = 5
 min_fish_scale = 0.25
 max_fish_scale = 1.0
 
