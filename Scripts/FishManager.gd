@@ -8,6 +8,7 @@ extends Sprite2D
 @onready var newFishSound : AudioStreamPlayer = $NewFishSound
 @onready var oldFishSound : AudioStreamPlayer = $OldFishSound
 @onready var failedCatchSound : AudioStreamPlayer = $FailedCatchSound
+@onready var fishBiteSound : AudioStreamPlayer = $FishBiteSound
 
 var totalFishCaught : int = 0
 var distinctFishCaught : int = 0
@@ -129,3 +130,4 @@ func Fish_Hook_Eaten():
 	#Random fish 
 	var fish = getFish()
 	GameManagerScript.game_fish_selected.emit(fish.Difficulty)
+	fishBiteSound.play()

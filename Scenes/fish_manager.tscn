@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://liwmkvsomj42"]
+[gd_scene load_steps=7 format=3 uid="uid://liwmkvsomj42"]
 
 [ext_resource type="Texture2D" uid="uid://yj5uuu6xmpob" path="res://Assets/Sprites/Fishes/Fishes_1.png" id="1_litfc"]
 [ext_resource type="Script" path="res://Scripts/FishManager.gd" id="1_wnbu7"]
 [ext_resource type="AudioStream" uid="uid://cnu3sk5y8pnhn" path="res://Assets/Sounds/newcatch.ogg" id="3_laiaw"]
 [ext_resource type="AudioStream" uid="uid://c8cbu6new0rwq" path="res://Assets/Sounds/oldcatch.ogg" id="4_b3c1o"]
 [ext_resource type="AudioStream" uid="uid://mvvao8wjcvgj" path="res://Assets/Sounds/reelthrow.ogg" id="5_4r83t"]
+[ext_resource type="AudioStream" uid="uid://c2ppurb2tqdns" path="res://Assets/Sounds/fishbite.ogg" id="6_lgi4h"]
 
 [node name="FishManager" type="Sprite2D"]
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_litfc")
 script = ExtResource("1_wnbu7")
+totalNumFish = null
+variance = null
 
 [node name="NewFishSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_laiaw")
@@ -19,3 +22,6 @@ stream = ExtResource("4_b3c1o")
 
 [node name="FailedCatchSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4r83t")
+
+[node name="FishBiteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lgi4h")

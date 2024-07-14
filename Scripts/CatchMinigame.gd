@@ -11,6 +11,9 @@ extends Node2D
 @onready var TimeToStartLeft : Label = $TimeToStartLabel
 @onready var TimeToStartTimer : Timer = $StartTimer
 
+@onready var hitSound : AudioStreamPlayer = $HitSound
+@onready var errorSound : AudioStreamPlayer = $ErrorSound
+
 var timer_count_time = 0
 var KeyLinePaths : Array[Line2D]
 var next_note_index : int = 0
@@ -154,6 +157,7 @@ func check_key_press():
 	var max_success_val = key_areas[current_set_index][next_note_index].angle + (note_success_threshold/2)
 	if not minigame_finished:#  and Input.is_action_just_pressed("ui_accept"):
 		if rad > min_success_val and rad < max_success_val:
+			hitSound.play()
 			KeyLinePaths[next_line_index].width = NoteHitableWidth
 			#Note Hit
 			hide_key(KeyLinePaths[next_line_index],true)
@@ -283,6 +287,7 @@ func hide_minigame(minigame_won):
 		local_tween.tween_callback(func():
 			GameManagerScript.game_over.emit(minigame_won))
 	else:
+		errorSound.play()
 		var local_tween = create_tween()   
 		local_tween.tween_property(self, "scale", Vector2.ZERO, 0.75)
 		local_tween.tween_callback(func():
