@@ -10,7 +10,7 @@ class_name FishBase
 @export var min_wander_range: float = 100.0  
 @export var max_wander_range: float = 500.0  
 
-const TARGET_REACHED_THRESHOLD = 10
+const TARGET_REACHED_THRESHOLD = 50
 const MIN_SPAWN_FADE_IN_DURATION = 1.5
 const MAX_SPAWN_FADE_IN_DURATION = 5
 
@@ -21,7 +21,7 @@ var water_body: WaterBody = null
 
 var focused : bool = false
 var focused_on_hook : bool = false
-var focused_distance : float = 30
+var focused_distance : float = 50
 var I_Got_Hooked : bool = false
 
 @onready var FishSprite : Sprite2D = $FishSprite

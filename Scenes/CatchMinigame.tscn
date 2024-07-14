@@ -13,16 +13,6 @@ point_count = 5
 position = Vector2(11, 10)
 script = ExtResource("1_tv3oe")
 
-[node name="MinigamePath" type="Path2D" parent="."]
-curve = SubResource("Curve2D_u12mx")
-
-[node name="PlayerIndicator" type="PathFollow2D" parent="MinigamePath"]
-position = Vector2(0, -100)
-
-[node name="Sprite2D" type="Sprite2D" parent="MinigamePath/PlayerIndicator"]
-scale = Vector2(-0.05, 0.2)
-texture = ExtResource("1_2r5t2")
-
 [node name="LinePath" type="Line2D" parent="."]
 points = PackedVector2Array(0, -100, 100, 0, 0, 100, -100, 0)
 closed = true
@@ -124,5 +114,15 @@ vertical_alignment = 1
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="MinigamePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_u12mx")
+
+[node name="PlayerIndicator" type="PathFollow2D" parent="MinigamePath"]
+position = Vector2(0, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="MinigamePath/PlayerIndicator"]
+scale = Vector2(-0.05, 0.2)
+texture = ExtResource("1_2r5t2")
 
 [connection signal="timeout" from="StartTimer" to="." method="start_timer_ended"]

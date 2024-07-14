@@ -9,6 +9,9 @@ extends Node2D
 @onready var ShotReticle : Sprite2D = $ShotReticle
 @onready var CatchingMinigame : CatchMinigame = $CatchMinigame
 @onready var Seduce_fished_timer : Timer = $Call_Fished_For_Hunt_Timer
+@onready var WhiteCircle1 : Sprite2D = $WaterCircle
+@onready var WhiteCircle2 : Sprite2D = $WaterCircle2
+@onready var WhiteCircle3 : Sprite2D = $WaterCircle3
 
 var playing_minigame : bool = false
 var hook_thrown : bool = false
@@ -16,6 +19,10 @@ var scare_fish_distance : float = 200
 var seduce_fish_for_hunt_distance : float = 350
 
 func _ready():
+	WhiteCircle1.scale = Vector2.ZERO
+	WhiteCircle2.scale = Vector2.ZERO
+	WhiteCircle3.scale = Vector2.ZERO
+	
 	GameManagerScript.game_over.connect(on_minigame_finished)
 	GameManagerScript.game_fish_selected.connect(on_fish_selected)
 
@@ -62,6 +69,28 @@ func throw_hook():
 			while (dest_pos - ShotReticle.global_position).length() < scare_fish_distance:
 				dest_pos = water_body.get_random_position_inside_polygon()
 			(current_fish as FishBase).Get_Scared(dest_pos)
+	
+	WhiteCircle1.global_position = ShotReticle.global_position
+	WhiteCircle2.global_position = ShotReticle.global_position
+	WhiteCircle3.global_position = ShotReticle.global_position	
+	var anim_duration = 2.5
+	var end_scale = 0.4
+	var local_tween = create_tween()
+	local_tween.set_parallel(true)
+	local_tween.tween_property(WhiteCircle1, "modulate:a", 0, anim_duration)
+	local_tween.tween_property(WhiteCircle1, "scale", Vector2(end_scale,end_scale), anim_duration)
+	local_tween.tween_property(WhiteCircle2, "modulate:a", 0, anim_duration).set_delay(0.5)
+	local_tween.tween_property(WhiteCircle2, "scale", Vector2(end_scale,end_scale), anim_duration).set_delay(0.5)
+	local_tween.tween_property(WhiteCircle3, "modulate:a", 0, anim_duration).set_delay(1.2)
+	local_tween.tween_property(WhiteCircle3, "scale", Vector2(end_scale,end_scale), anim_duration).set_delay(1.2)
+	local_tween.chain().tween_callback(func():
+		WhiteCircle1.scale = Vector2.ZERO
+		WhiteCircle2.scale = Vector2.ZERO
+		WhiteCircle3.scale = Vector2.ZERO	
+		WhiteCircle1.modulate.a = 1
+		WhiteCircle2.modulate.a = 1
+		WhiteCircle3.modulate.a = 1
+		)
 
 func on_call_fished_for_hunt_timer_ended():
 	var fish_count = fishes_spawn_pool.get_child_count()
