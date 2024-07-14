@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ca6rfsyxbn0va"]
 
-[ext_resource type="PackedScene" uid="uid://bpabwbo2u6s1y" path="res://Scenes/Environment/WaterBody.tscn" id="1_q2afw"]
+[ext_resource type="PackedScene" uid="uid://bpabwbo2u6s1y" path="res://Scenes/WaterBody.tscn" id="1_q2afw"]
 [ext_resource type="PackedScene" uid="uid://liwmkvsomj42" path="res://Scenes/fish_manager.tscn" id="2_dfvys"]
 [ext_resource type="Script" path="res://Scripts/FishSpawnManager.gd" id="3_imkes"]
 [ext_resource type="PackedScene" uid="uid://r26svdb4yxlv" path="res://Scenes/Fishes/FishBase.tscn" id="4_ph0w5"]
