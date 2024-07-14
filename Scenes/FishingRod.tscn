@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3ko1knhdsvy0"]
+[gd_scene load_steps=5 format=3 uid="uid://b3ko1knhdsvy0"]
 
 [ext_resource type="Script" path="res://Scripts/FishingRod.gd" id="1_1xkbq"]
 [ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="2_jsl3k"]
 [ext_resource type="Texture2D" uid="uid://5qklr3a1guu5" path="res://Assets/Sprites/target.png" id="3_1pyff"]
+[ext_resource type="PackedScene" uid="uid://bkcw7fcmn3sa1" path="res://Scenes/CatchMinigame.tscn" id="4_c0scg"]
 
 [node name="FishingRod" type="Node2D"]
 position = Vector2(4, 8)
@@ -15,3 +16,6 @@ texture = ExtResource("2_jsl3k")
 [node name="ShotReticle" type="Sprite2D" parent="."]
 position = Vector2(945, 512)
 texture = ExtResource("3_1pyff")
+
+[node name="CatchMinigame" parent="." instance=ExtResource("4_c0scg")]
+position = Vector2(1164, 817)
