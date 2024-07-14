@@ -119,7 +119,7 @@ func _process(delta):
 			TimeToStartLeft.text = str(time as int)
 	else:
 		rotate_indicator(delta)
-		check_key_press()
+		#check_key_press()
 
 func rotate_indicator(delta):
 	#Check for missed notes
@@ -151,7 +151,7 @@ func check_key_press():
 	var rad = PlayerIndicator.progress_ratio * (2*PI)
 	var min_success_val = key_areas[current_set_index][next_note_index].angle - (note_success_threshold/2)
 	var max_success_val = key_areas[current_set_index][next_note_index].angle + (note_success_threshold/2)
-	if not minigame_finished  and Input.is_action_just_pressed("ui_accept"):
+	if not minigame_finished:#  and Input.is_action_just_pressed("ui_accept"):
 		if rad > min_success_val and rad < max_success_val:
 			KeyLinePaths[next_line_index].width = NoteHitableWidth
 			#Note Hit
