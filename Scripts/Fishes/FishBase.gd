@@ -33,6 +33,7 @@ func _ready():
 	FishSprite.modulate.a = 0
 	local_tween.tween_property(FishSprite, "modulate:a", 1, randf_range(MIN_SPAWN_FADE_IN_DURATION, MAX_SPAWN_FADE_IN_DURATION))
 	GameManagerScript.game_fish_selected.connect(on_some_fish_got_hooked)
+	GameManagerScript.hook_recovered.connect(on_hook_recovered)
 
 func _process(delta):
 	var dir = target_pos-global_position
@@ -88,6 +89,9 @@ func Hunt(hunting_dest):
 func on_some_fish_got_hooked(level):
 	if I_Got_Hooked:
 		return
+	on_hook_recovered()
+
+func on_hook_recovered():
 	focused = false
 	focused_on_hook=false
 	speed = normal_speed

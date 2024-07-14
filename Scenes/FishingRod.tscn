@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3ko1knhdsvy0"]
+[gd_scene load_steps=8 format=3 uid="uid://b3ko1knhdsvy0"]
 
 [ext_resource type="Script" path="res://Scripts/FishingRod.gd" id="1_1xkbq"]
 [ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="2_jsl3k"]
 [ext_resource type="Texture2D" uid="uid://b3fp7sh5g8dso" path="res://Assets/Sprites/float.png" id="3_oyu60"]
 [ext_resource type="PackedScene" uid="uid://bkcw7fcmn3sa1" path="res://Scenes/CatchMinigame.tscn" id="4_c0scg"]
+[ext_resource type="Texture2D" uid="uid://d3ere2hk3vsxm" path="res://Assets/Sprites/float_underwater.png" id="4_kc4w1"]
 [ext_resource type="Texture2D" uid="uid://camjp47pxejbk" path="res://Assets/Sprites/White-Circle.png" id="5_xwbv7"]
 
 [sub_resource type="Curve" id="Curve_agxjw"]
@@ -28,11 +29,6 @@ width_curve = SubResource("Curve_agxjw")
 [node name="RodStart" type="Node2D" parent="RodVisualizer"]
 position = Vector2(-10.0062, -62.7044)
 
-[node name="ShotReticle" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_oyu60")
-offset = Vector2(0, -60)
-
 [node name="CatchMinigame" parent="." instance=ExtResource("4_c0scg")]
 position = Vector2(0, 0)
 
@@ -47,5 +43,16 @@ texture = ExtResource("5_xwbv7")
 
 [node name="WaterCircle3" type="Sprite2D" parent="."]
 texture = ExtResource("5_xwbv7")
+
+[node name="ShotReticle" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_oyu60")
+offset = Vector2(0, -60)
+
+[node name="ShotReticle2" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_kc4w1")
+offset = Vector2(0, -60)
 
 [connection signal="timeout" from="Call_Fished_For_Hunt_Timer" to="." method="on_call_fished_for_hunt_timer_ended"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpabwbo2u6s1y"]
 
 [ext_resource type="Script" path="res://Scripts/WaterBody.gd" id="1_ot2dl"]
-[ext_resource type="Texture2D" uid="uid://tx0e4h6cytu" path="res://Assets/Sprites/WhitePixel.png" id="2_w6p34"]
+[ext_resource type="Texture2D" uid="uid://nepe358nx3oo" path="res://Assets/Sprites/lake.png" id="2_we2rl"]
 
 [node name="WaterBody" type="Node2D"]
 position = Vector2(600, 319)
@@ -11,13 +11,13 @@ script = ExtResource("1_ot2dl")
 modulate = Color(0, 0.580392, 0.592157, 1)
 position = Vector2(-3.4019, -7.61333)
 rotation = 3.14159
-scale = Vector2(803.56, 397.08)
-texture = ExtResource("2_w6p34")
+scale = Vector2(4, 4)
+texture = ExtResource("2_we2rl")
 
 [node name="WaterBodyArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterBodyArea"]
-polygon = PackedVector2Array(1, -67, 37, -59, 86, -53, 136, -68, 164, -105, 179, -149, 185, -182, 224, -195, 281, -183, 326, -123, 353, -43, 352, 44, 335, 103, 283, 148, 152, 160, 82, 169, -29, 163, -174, 127, -296, 86, -336, 8, -317, -96, -243, -135, -149, -138, -55, -108)
+polygon = PackedVector2Array(59, -183, 191, -173, 335, -127, 409, -91, 443, -9, 405, 71, 301, 113, 201, 125, 87, 153, -107, 149, -311, 103, -441, 21, -447, -55, -381, -117, -273, -159, -173, -181, -45, -181)
 
 [node name="TopLeftLimit" type="Node2D" parent="."]
 position = Vector2(-420, -200)

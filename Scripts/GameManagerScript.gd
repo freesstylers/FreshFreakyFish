@@ -15,6 +15,7 @@ var RNG = RandomNumberGenerator.new()
 signal game_start_playing()
 signal game_over(playerDead : bool)
 signal game_fish_selected(level : int)
+signal hook_recovered()
 #End Globals
 
 

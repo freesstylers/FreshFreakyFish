@@ -7,6 +7,7 @@ extends Node2D
 
 @onready var RodVisualizer : Sprite2D = $RodVisualizer
 @onready var ShotReticle : Sprite2D = $ShotReticle
+@onready var ShotReticle2 : Sprite2D = $ShotReticle2
 @onready var CatchingMinigame : CatchMinigame = $CatchMinigame
 @onready var Seduce_fished_timer : Timer = $Call_Fished_For_Hunt_Timer
 @onready var WhiteCircle1 : Sprite2D = $WaterCircle
@@ -43,9 +44,15 @@ func _process(delta):
 			var new_position = ShotReticle.global_position + input_direction * speed * delta
 			if is_inside_water_body(new_position):
 				ShotReticle.global_position = new_position
+				ShotReticle2.global_position = new_position
 		
 		if Input.is_action_just_pressed("ui_accept") and CatchingMinigame:
 			throw_hook()
+	else:
+		if not playing_minigame and hook_thrown and Input.is_action_just_pressed("ui_accept"):
+			recover_hook()
+			
+	#Hit notes
 	if playing_minigame:
 		if Input.is_action_just_pressed("ui_accept") and CatchingMinigame:
 			CatchingMinigame.check_key_press()
@@ -59,6 +66,7 @@ func set_water_body(water_body_node: WaterBody):
 	water_body = water_body_node
 
 func throw_hook():
+	ShotReticle2.visible = true
 	Seduce_fished_timer.start()
 	hook_thrown = true
 	var fish_count = fishes_spawn_pool.get_child_count()
@@ -92,6 +100,12 @@ func throw_hook():
 		WhiteCircle3.modulate.a = 1
 		)
 
+func recover_hook():
+	hook_thrown = false
+	Seduce_fished_timer.stop()
+	ShotReticle2.visible = false
+	GameManagerScript.hook_recovered.emit()
+
 func on_call_fished_for_hunt_timer_ended():
 	var fish_count = fishes_spawn_pool.get_child_count()
 	for fish_index in range(fish_count):
@@ -107,3 +121,4 @@ func on_fish_selected(difficulty : int):
 func on_minigame_finished(minigame_won):
 	hook_thrown = false
 	playing_minigame = false
+	ShotReticle2.visible = false
