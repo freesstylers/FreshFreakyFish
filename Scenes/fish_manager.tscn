@@ -11,8 +11,6 @@
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_litfc")
 script = ExtResource("1_wnbu7")
-totalNumFish = null
-variance = null
 
 [node name="NewFishSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_laiaw")
