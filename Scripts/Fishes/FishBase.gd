@@ -5,7 +5,7 @@ class_name FishBase
 @export var normal_speed: float = 50.0          
 @export var min_hunting_speed: float = 80.0          
 @export var max_hunting_speed: float = 200.0          
-@export var scared_speed: float = 900.0          
+@export var scared_speed: float = 500.0          
 @export var rotation_speed = 5.0 
 @export var min_wander_range: float = 100.0  
 @export var max_wander_range: float = 500.0  

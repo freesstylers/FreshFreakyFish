@@ -17,9 +17,8 @@ position = Vector2(702, 328)
 script = ExtResource("3_imkes")
 fish_scene = ExtResource("4_ph0w5")
 water_body = NodePath("../WaterBody")
-initial_fish_count = 3
-min_fish_count = 2
-max_fish_count = 5
+min_fish_count = 10
+max_fish_count = 15
 
 [node name="FishesSpawnedPool" type="Node2D" parent="FishSpawnManager"]
 

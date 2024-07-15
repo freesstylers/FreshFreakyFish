@@ -17,7 +17,7 @@ extends Node2D
 var playing_minigame : bool = false
 var hook_thrown : bool = false
 var on_play_scene : bool = false
-var scare_fish_distance : float = 200
+var scare_fish_distance : float = 75
 var seduce_fish_for_hunt_distance : float = 350
 
 func _ready():
