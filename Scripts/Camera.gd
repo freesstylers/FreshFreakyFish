@@ -4,6 +4,8 @@ extends Camera2D
 @export var gamepos : Node2D = null
 @export var MainMenu: Node = null
 
+@export var RemoveFocusNode: Control = null
+
 var posToMoveTo : Vector2 = Vector2(0,0)
 
 func _ready():
@@ -13,6 +15,7 @@ func _ready():
 func _on_play_pressed():
 	posToMoveTo = gamepos.position
 	GameManagerScript.go_to_play_scene.emit()
+	RemoveFocusNode.grab_focus()
 	
 func _process(delta):
 	position = lerp(position, posToMoveTo, 0.05)

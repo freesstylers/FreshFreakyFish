@@ -7,8 +7,12 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	FirstButton.grab_focus()
+	GameManagerScript.go_back_to_menu.connect(backToMenu)
 	pass # Replace with function body.
 
+func backToMenu():
+	FirstButton.grab_focus()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

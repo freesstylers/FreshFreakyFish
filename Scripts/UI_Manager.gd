@@ -1,5 +1,9 @@
 extends Control
 
+@export var UI : Control
+@export var Info : Control
+@export var FirstMenu : Control
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +16,9 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	get_child(0).get_child(0).visible = !get_child(0).get_child(0).visible
+	UI.visible = !UI.visible
+	if UI.visible:
+		FirstMenu.get_child(0).grab_focus()
+		Info.visible = false
+		pass
 	pass # Replace with function body.

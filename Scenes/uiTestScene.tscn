@@ -29,7 +29,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixkko"]
 bg_color = Color(0, 0, 0, 0.313726)
 
-[node name="UiTestScene" type="Control"]
+[node name="UiTestScene" type="Control" node_paths=PackedStringArray("UI", "Info", "FirstMenu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,6 +38,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7avne")
 script = ExtResource("1_utbpt")
+UI = NodePath("CanvasLayer/Freakypedia")
+Info = NodePath("CanvasLayer/Freakypedia/TextureRect2/Control")
+FirstMenu = NodePath("CanvasLayer/Freakypedia/TextureRect2/LeftPage/FishEntry")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -313,6 +316,7 @@ anchor_left = 0.907292
 anchor_top = 0.0527778
 anchor_right = 0.98125
 anchor_bottom = 0.184259
+focus_mode = 0
 theme = ExtResource("1_7avne")
 theme_type_variation = &"FlatButton"
 icon = ExtResource("25_3saq6")

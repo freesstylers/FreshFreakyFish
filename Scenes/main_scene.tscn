@@ -82,11 +82,12 @@ grow_vertical = 2
 texture = ExtResource("3_m0aq1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("mainpos", "gamepos", "MainMenu")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("mainpos", "gamepos", "MainMenu", "RemoveFocusNode")]
 script = ExtResource("1_hs7cy")
 mainpos = NodePath("../MainPos")
 gamepos = NodePath("../GamePos")
 MainMenu = NodePath("../Control")
+RemoveFocusNode = NodePath("../emptyControl")
 
 [node name="MainPos" type="Node2D" parent="."]
 position = Vector2(640, 540)
@@ -380,6 +381,7 @@ offset_left = -108.0
 offset_right = 84.0
 offset_bottom = 192.0
 grow_horizontal = 0
+focus_mode = 0
 theme = ExtResource("10_3ge0y")
 icon = ExtResource("15_b1mru")
 metadata/_edit_use_anchors_ = true
@@ -395,6 +397,7 @@ offset_left = -21.0
 offset_top = -812.0
 offset_right = -133.0
 offset_bottom = -924.0
+focus_mode = 0
 theme = ExtResource("10_3ge0y")
 theme_type_variation = &"FlatButton"
 icon = ExtResource("16_qeviv")
@@ -406,6 +409,12 @@ anchors_preset = -1
 anchor_left = 0.834375
 anchor_right = 1.83438
 metadata/_edit_use_anchors_ = true
+
+[node name="emptyControl" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 2
 
 [connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Play" to="Camera2D" method="_on_play_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Play" to="Music" method="_on_play_pressed"]

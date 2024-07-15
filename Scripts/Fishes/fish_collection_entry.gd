@@ -6,6 +6,7 @@ extends Control
 @export var fishReference : Fish
 
 func _on_button_pressed():
+	detailedPage.visible = true
 	if GameManagerScript.save_dict.has(fishReference.Name):
 		if fishReference.IsColosal:
 			detailedPage.image.scale = Vector2(0.5, 0.5)
