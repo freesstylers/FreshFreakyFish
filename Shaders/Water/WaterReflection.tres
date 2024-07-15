@@ -1,11 +1,23 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ppus4ephou25"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ppus4ephou25"]
 
-[ext_resource type="Shader" path="res://Shaders/Water/WaterReflection.gdshader" id="1_8n1kw"]
-[ext_resource type="Texture2D" uid="uid://da5kle5h43f7t" path="res://Shaders/Water/Noise.png" id="2_yvgnt"]
+[ext_resource type="Shader" path="res://Shaders/Water2/WaterTest.gdshader" id="1_bvavm"]
 
 [resource]
-shader = ExtResource("1_8n1kw")
-shader_parameter/param1 = Vector2(1, 1)
-shader_parameter/param2 = Vector2(0.4, 0.7)
-shader_parameter/param3 = Vector2(0.2, 0.4)
-shader_parameter/iChannel1 = ExtResource("2_yvgnt")
+shader = ExtResource("1_bvavm")
+shader_parameter/aspectRatio = 1.0
+shader_parameter/pixelization = 2048.0
+shader_parameter/causticColor = Vector4(0.455, 0.773, 0.765, 1)
+shader_parameter/causticHighlightColor = Vector4(0.741, 0.894, 0.898, 1)
+shader_parameter/causticScale = 12.0
+shader_parameter/causticSpeed = 0.005
+shader_parameter/causticMovementAmount = 0.15
+shader_parameter/causticFaderMultiplier = 1.45
+shader_parameter/specularColor = Vector4(1, 1, 1, 1)
+shader_parameter/specularThreshold = 0.35
+shader_parameter/specularSpeed = 0.025
+shader_parameter/specularScale = 15.0
+shader_parameter/foamColor = Vector4(1, 1, 1, 1)
+shader_parameter/foamIntensity = 0.2
+shader_parameter/foamScale = 15.0
+shader_parameter/outlineColor = Vector4(0.675, 0.86, 1, 1)
+shader_parameter/generalTransparency = 1.0
