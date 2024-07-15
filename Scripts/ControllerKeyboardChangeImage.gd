@@ -7,7 +7,7 @@ extends TextureRect
 func _input(event):
 	if event is InputEventMouse:
 		texture = ImageKeyboard
-	if event is InputEventJoypadButton or InputEventJoypadMotion:
+	if event is InputEventJoypadButton:
 		texture = ImageController
-	#if event is InputEventKey and event.pressed:
-		#texture = ImageKeyboard
+#	if event is InputEventKey and event.pressed:
+#		texture = ImageKeyboard
