@@ -25,7 +25,7 @@ func _ready():
 			"en":
 				add_item(TranslationServer.get_locale_name(locale))	
 	
-	select(langs.find(TranslationServer.get_locale()))
+	select(langs.find("es"))
 
 func _on_item_selected(index):
 	TranslationServer.set_locale(langs[index])

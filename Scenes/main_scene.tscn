@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dquhyqt1kya4s"]
+[gd_scene load_steps=26 format=3 uid="uid://dquhyqt1kya4s"]
 
 [ext_resource type="Shader" path="res://Shaders/Grass/GrassSway.gdshader" id="1_cpttq"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_hs7cy"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bsb74hhmwkyor" path="res://Assets/Sprites/arrow.png" id="15_b1mru"]
 [ext_resource type="AudioStream" uid="uid://bgfuj86k6fbqy" path="res://Assets/Sounds/bubble_button.ogg" id="15_lj1w1"]
 [ext_resource type="Texture2D" uid="uid://cp6hw1jgf3da" path="res://Assets/Sprites/collection_icon.png" id="16_qeviv"]
+[ext_resource type="FontFile" uid="uid://1oobvc5u1g3j" path="res://Assets/Fonts/Retro Gaming.ttf" id="17_uv1i0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_auocy"]
 shader = ExtResource("1_cpttq")
@@ -32,6 +33,18 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = 0.393
 shader_parameter/heightOffset = 0.259
 shader_parameter/offset = 0.075
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldxfr"]
+font = ExtResource("17_uv1i0")
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_tuwyx"]
+font = ExtResource("17_uv1i0")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_mygyf"]
+font = ExtResource("17_uv1i0")
+font_size = 48
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -129,7 +142,7 @@ focus_neighbor_top = NodePath("../LanguageSelector")
 focus_neighbor_right = NodePath("../../Jam")
 focus_neighbor_bottom = NodePath("../How To Play")
 theme = ExtResource("3_xwoam")
-text = "¡A pescar!"
+text = "MM_Play"
 
 [node name="How To Play" type="Button" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 60)
@@ -140,7 +153,7 @@ focus_neighbor_top = NodePath("../Play")
 focus_neighbor_right = NodePath("../../Jam")
 focus_neighbor_bottom = NodePath("../Credits")
 theme = ExtResource("3_xwoam")
-text = "¿Cómo pescar?"
+text = "MM_HowTo"
 
 [node name="Credits" type="Button" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 60)
@@ -151,7 +164,7 @@ focus_neighbor_top = NodePath("../How To Play")
 focus_neighbor_right = NodePath("../../Jam")
 focus_neighbor_bottom = NodePath("../LanguageSelector")
 theme = ExtResource("3_xwoam")
-text = "Créditos"
+text = "MM_Credits"
 
 [node name="LanguageSelector" type="OptionButton" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 60)
@@ -162,12 +175,6 @@ focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_right = NodePath("../../Jam")
 focus_neighbor_bottom = NodePath("../Play")
 alignment = 1
-item_count = 2
-selected = 0
-popup/item_0/text = "Castellano"
-popup/item_0/id = 0
-popup/item_1/text = "English"
-popup/item_1/id = 1
 script = ExtResource("11_xwt16")
 
 [node name="FreeStylers" type="Button" parent="Control/CanvasLayer"]
@@ -218,6 +225,141 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="Control/CanvasLayer"]
 stream = ExtResource("15_lj1w1")
+
+[node name="Credits" type="Panel" parent="Control/CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.620313
+anchor_bottom = 0.896296
+offset_top = 34.0
+offset_bottom = 34.0
+theme = ExtResource("3_xwoam")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02267
+anchor_top = 0.0433884
+anchor_right = 0.979849
+anchor_bottom = 0.28719
+offset_bottom = -73.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_ldxfr")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Control/CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0209908
+anchor_top = 0.196709
+anchor_right = 0.979849
+anchor_bottom = 0.289482
+text = "FreeStylers Studio"
+label_settings = SubResource("LabelSettings_tuwyx")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Control/CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0260285
+anchor_top = 0.293388
+anchor_right = 0.984887
+anchor_bottom = 0.846074
+offset_bottom = -148.0
+text = "Pablo Grossi
+Gonzalo Cidoncha
+Javier Arias
+Ignacio Ory
+Jose Martín
+David Czepiel"
+label_settings = SubResource("LabelSettings_mygyf")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="Control/CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0209908
+anchor_top = 0.696709
+anchor_right = 0.979849
+anchor_bottom = 0.789482
+text = "Extras"
+label_settings = SubResource("LabelSettings_tuwyx")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="Control/CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02267
+anchor_top = 0.77581
+anchor_right = 0.981528
+anchor_bottom = 0.849052
+text = "Marina Tradugotchi - LOC"
+label_settings = SubResource("LabelSettings_mygyf")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CreditsClose" type="Button" parent="Control/CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.443325
+anchor_top = 0.888115
+anchor_right = 0.554996
+anchor_bottom = 0.951132
+offset_right = 6.10352e-05
+text = "MM_Close"
+metadata/_edit_use_anchors_ = true
+
+[node name="HowToPlay" type="Panel" parent="Control/CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.620313
+anchor_bottom = 0.896296
+offset_top = 34.0
+offset_bottom = 34.0
+theme = ExtResource("3_xwoam")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02267
+anchor_top = 0.0433884
+anchor_right = 0.979849
+anchor_bottom = 0.28719
+offset_bottom = -73.0
+text = "Controls"
+label_settings = SubResource("LabelSettings_ldxfr")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Control/CanvasLayer/HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0209908
+anchor_top = 0.196281
+anchor_right = 0.979849
+anchor_bottom = 0.748967
+offset_bottom = -148.0
+text = "MM_HowToDetail"
+label_settings = SubResource("LabelSettings_mygyf")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HowToPlayClose" type="Button" parent="Control/CanvasLayer/HowToPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.443325
+anchor_top = 0.888115
+anchor_right = 0.554996
+anchor_bottom = 0.951132
+offset_right = 6.10352e-05
+text = "MM_Close"
+metadata/_edit_use_anchors_ = true
 
 [node name="GameplayScene" parent="." instance=ExtResource("14_1bdk5")]
 position = Vector2(1956, 189)
@@ -274,6 +416,8 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Control/CanvasLayer/FreeStylers" to="Control" method="_on_freestylers_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/Jam" to="Control" method="_on_jam_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/Twitter" to="Control" method="_on_twitter_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/Credits/CreditsClose" to="Control" method="_on_credits_close_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/HowToPlay/HowToPlayClose" to="Control" method="_on_how_to_play_close_pressed"]
 [connection signal="pressed" from="GameplayScene/CanvasLayer/Back" to="Camera2D" method="_on_back_pressed"]
 [connection signal="pressed" from="GameplayScene/CanvasLayer/Back" to="Music" method="_on_back_pressed"]
 [connection signal="pressed" from="GameplayScene/CanvasLayer/Button" to="UiTestScene" method="_on_button_pressed"]

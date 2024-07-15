@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7gpbgffuisqv"]
 
-[ext_resource type="Theme" uid="uid://17c7x2mn15pu" path="res://Assets/UI/Themes/Freakypedia.tres" id="1_yc7w8"]
+[ext_resource type="Theme" uid="uid://ctcpl1m0gu4xo" path="res://Assets/UI/Themes/Freakypedia.tres" id="1_yc7w8"]
 [ext_resource type="Script" path="res://Scripts/Fishes/fish_collection_entry.gd" id="2_gq1h6"]
 [ext_resource type="Texture2D" uid="uid://dwc315j7hh2j7" path="res://Assets/Sprites/Fishes/Fishes_Base.png" id="3_44o0x"]
 

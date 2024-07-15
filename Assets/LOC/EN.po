@@ -6,14 +6,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: ezgif.com\n"
 
-msgid ""
-msgstr "en"
-
 msgid "Fish1_Name"
 msgstr "Lightfish"
 
 msgid "Fish1_Desc"
-msgstr "PENDING"
+msgstr "An electric fish sounds quite inconvenient."
 
 msgid "Fish2_Name"
 msgstr "Kissfish"
@@ -31,7 +28,7 @@ msgid "Fish4_Name"
 msgstr "Thingfish"
 
 msgid "Fish4_Desc"
-msgstr "It communicates with other fish through Morse code."
+msgstr "It communicates with other fish through sign language."
 
 msgid "Fish5_Name"
 msgstr "Stickfish"
@@ -43,7 +40,7 @@ msgid "Fish6_Name"
 msgstr "Nerdfish"
 
 msgid "Fish6_Desc"
-msgstr "Actually, its scientific name is"
+msgstr "Ackchually, its scientific name is Nerdus Geometrinus."
 
 msgid "Fish7_Name"
 msgstr "Hotfish"
@@ -52,19 +49,19 @@ msgid "Fish7_Desc"
 msgstr "This might as well be considered sushi."
 
 msgid "Fish8_Name"
-msgstr "PENDING"
+msgstr "Oysterfish"
 
 msgid "Fish8_Desc"
-msgstr "If this one wore glasses, how would it wear them?"
+msgstr "Hey guys, did you know that in terms of...?"
 
 msgid "Fish9_Name"
-msgstr "PENDING"
+msgstr "Disco Snail"
 
 msgid "Fish9_Desc"
-msgstr "PENDING"
+msgstr "Disco Snail could be a fish with no scales."
 
 msgid "Fish10_Name"
-msgstr "PENDING"
+msgstr "Scenekrab"
 
 msgid "Fish10_Desc"
 msgstr "It's not a phase, Ariel."
@@ -73,7 +70,7 @@ msgid "Fish11_Name"
 msgstr "Jellyfishfish"
 
 msgid "Fish11_Desc"
-msgstr "PENDING"
+msgstr "Friends, not food."
 
 msgid "Fish12_Name"
 msgstr "Eaglefish"
@@ -85,11 +82,26 @@ msgid "Fish13_Name"
 msgstr "Cabbagefish"
 
 msgid "Fish13_Desc"
-msgstr "Probably funnier in Spanish."
+msgstr "Biggest fish in the pond. Any fisher's ultimate goal. You're at your peak."
 
 msgid "Fish14_Name"
-msgstr "PENDING"
+msgstr "????"
 
 msgid "Fish14_Desc"
-msgstr "PENDING"
+msgstr "Catch this fish to unlock this data."
+
+msgid "MM_Play"
+msgstr "Let's fish!"
+
+msgid "MM_HowTo"
+msgstr "How to fish?"
+
+msgid "MM_Credits"
+msgstr "Credits"
+
+msgid "MM_HowToDetail"
+msgstr "Move your hook with the\ndirectional arrows\n-\nCast the fishing rod and\nreturn it with Z\n-\nPress on the encyclopedia to check\nyour progress\n-\nEnjoy!"
+
+msgid "MM_Close"
+msgstr "Close"
 

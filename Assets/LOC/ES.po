@@ -6,56 +6,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: ezgif.com\n"
 
-msgid ""
-msgstr "es"
-
 msgid "Fish1_Name"
-msgstr "Pez rayo"
+msgstr "Repámpano"
 
 msgid "Fish1_Desc"
-msgstr "PENDIENTE"
+msgstr "Un día hubo un resplandor e hizo ¡pum!, y ahí había aparecido esta nueva especie."
 
 msgid "Fish2_Name"
-msgstr "Pez beso"
+msgstr "El Besucón"
 
 msgid "Fish2_Desc"
-msgstr "PENDIENTE"
+msgstr "Acusado de promover estándares de belleza inalcanzables entre los animales marinos."
 
 msgid "Fish3_Name"
-msgstr "Pez flecha"
+msgstr "Pescao Afilao"
 
 msgid "Fish3_Desc"
 msgstr "Una vez se me clavó uno en la rodilla."
 
 msgid "Fish4_Name"
-msgstr "Pez mano"
+msgstr "Anguilómano"
 
 msgid "Fish4_Desc"
-msgstr "PENDIENTE"
+msgstr "¡He pescado un Anguilómano! ¡Ahora puedo hacer una rima graciosísima!"
 
 msgid "Fish5_Name"
-msgstr "Pez mando"
+msgstr "Mantagueimer"
 
 msgid "Fish5_Desc"
-msgstr "Con mando pero sin manos, como tu colega cuando jugáis juntos."
+msgstr "Se dice que le gusta jugar con otros peces, pero es un manta."
 
 msgid "Fish6_Name"
-msgstr "PENDIENTE"
+msgstr "Pez Nerd"
 
 msgid "Fish6_Desc"
-msgstr "PENDIENTE"
+msgstr "En realidad, se denomina Nerdus Geometrinus, del grupo Nerdus."
 
 msgid "Fish7_Name"
-msgstr "Pez perro"
+msgstr "Pez Perro"
 
 msgid "Fish7_Desc"
-msgstr "No era el pez perro que esperaba, pero quizá sí el que merezco."
+msgstr "No era el perro que esperaba, pero quizá sí el pez que merezco."
 
 msgid "Fish8_Name"
-msgstr "PENDIENTE"
+msgstr "Chupostra"
 
 msgid "Fish8_Desc"
-msgstr "PENDIENTE"
+msgstr "¿Sabíais que en términos reproductivos...?"
 
 msgid "Fish9_Name"
 msgstr "Sargento Karakol"
@@ -64,19 +61,19 @@ msgid "Fish9_Desc"
 msgstr "¿Has oído hablar del caracol afro?"
 
 msgid "Fish10_Name"
-msgstr "PENDIENTE"
+msgstr "Crusterroráceo"
 
 msgid "Fish10_Desc"
-msgstr "A juzgar por el color, quizá le sentó mal una hamburguesa."
+msgstr "Dicen que si escuchas a través de su concha puedes comunicarte con seres de otro planeta."
 
 msgid "Fish11_Name"
-msgstr "PENDIENTE"
+msgstr "Medusicornio"
 
 msgid "Fish11_Desc"
-msgstr "PENDIENTE"
+msgstr "Una relación de simbiosis en el que el pez aleja depredadores con su dulzura"
 
 msgid "Fish12_Name"
-msgstr "Pez águila"
+msgstr "Pez Águila"
 
 msgid "Fish12_Desc"
 msgstr "Más sabe el pez águila por pez que por águila."
@@ -85,11 +82,26 @@ msgid "Fish13_Name"
 msgstr "Pez Col-osal"
 
 msgid "Fish13_Desc"
-msgstr "PENDIENTE"
+msgstr "El pez más grande del estanque, el último logro de todo pescador. Ya puedes retirarte."
 
 msgid "Fish14_Name"
-msgstr "PENDIENTE"
+msgstr "????"
 
 msgid "Fish14_Desc"
-msgstr "PENDIENTE"
+msgstr "Captura este pez para desbloquear esta información."
+
+msgid "MM_Play"
+msgstr "¡A pescar!"
+
+msgid "MM_HowTo"
+msgstr "¿Cómo pescar?"
+
+msgid "MM_Credits"
+msgstr "Créditos"
+
+msgid "MM_HowToDetail"
+msgstr "Mueve tu anzuelo con las flechas\n direccionales\n-\nTira la caña y recógela con Z\n-\nPulsa en la enciclopedia para\n comprobar tu progreso\n-\n¡Disfruta!"
+
+msgid "MM_Close"
+msgstr "Cerrar"
 
