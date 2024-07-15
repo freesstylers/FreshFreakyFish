@@ -20,6 +20,16 @@ func _on_play_pressed():
 func _process(delta):
 	position = lerp(position, posToMoveTo, 0.05)
 
+@export var Book : Node = null
+
+func _input(event):
+	if event.is_action_pressed("Back"):
+		if posToMoveTo == gamepos.position:
+			_on_back_pressed()
+	if event.is_action_pressed("Book"):
+		if posToMoveTo == gamepos.position:
+			Book._on_button_pressed()
+
 func _on_back_pressed():
 	MainMenu.visible = true
 	posToMoveTo = mainpos.position
