@@ -34,7 +34,7 @@ const NoteHitableWidth = 20
 #Level 4: 5 rondas 2 notas cada una pequeñas rápido 
 
 var ROTATIONVELOCITIES : Array[float] = [0.55,0.6,0.65,0.75, 0.6]
-var NUMSETSPERLEVEL : Array[int] = [1,2,10,5, 1]
+var NUMSETSPERLEVEL : Array[int] = [1,2,3,5, 1]
 
 #LEVEL 1 LEVELS
 var LEVEL1SETS : Array[Array] = [
@@ -148,32 +148,34 @@ func rotate_indicator(delta):
 	PlayerIndicator.progress_ratio += rotation_delta
 
 func check_key_press():
-	#Where is the player right now and where are the limits of the next note
-	var rad = PlayerIndicator.progress_ratio * (2*PI)
-	var min_success_val = key_areas[current_set_index][next_note_index].angle - (note_success_threshold/2)
-	var max_success_val = key_areas[current_set_index][next_note_index].angle + (note_success_threshold/2)
-	if not minigame_finished:#  and Input.is_action_just_pressed("ui_accept"):
-		if rad > min_success_val and rad < max_success_val:
-			hitSound.play()
-			KeyLinePaths[next_line_index].width = NoteHitableWidth
-			#Note Hit
-			hide_key(KeyLinePaths[next_line_index],true)
-			#next set of notes
-			if next_note_index == 0:
-				note_set_finished = true		
-				var next_set = (current_set_index+1) % key_areas.size()
-				if next_set != 0:
-					pass
-					#show_keynotes(next_set)		
-				else:
-					hide_minigame(true)
-		elif rad > min_success_val - note_fail_threshold and rad < min_success_val:
-			hide_key(KeyLinePaths[next_line_index],false)
-			minigame_finished = true
-			hide_minigame(false)
-			#next set of notes
-			if next_note_index == 0:
-				note_set_finished = true	
+	
+	if not key_areas.is_empty():
+		#Where is the player right now and where are the limits of the next note
+		var rad = PlayerIndicator.progress_ratio * (2*PI)
+		var min_success_val = key_areas[current_set_index][next_note_index].angle - (note_success_threshold/2)
+		var max_success_val = key_areas[current_set_index][next_note_index].angle + (note_success_threshold/2)
+		if not minigame_finished:#  and Input.is_action_just_pressed("ui_accept"):
+			if rad > min_success_val and rad < max_success_val:
+				hitSound.play()
+				KeyLinePaths[next_line_index].width = NoteHitableWidth
+				#Note Hit
+				hide_key(KeyLinePaths[next_line_index],true)
+				#next set of notes
+				if next_note_index == 0:
+					note_set_finished = true		
+					var next_set = (current_set_index+1) % key_areas.size()
+					if next_set != 0:
+						pass
+						#show_keynotes(next_set)		
+					else:
+						hide_minigame(true)
+			elif rad > min_success_val - note_fail_threshold and rad < min_success_val:
+				hide_key(KeyLinePaths[next_line_index],false)
+				minigame_finished = true
+				hide_minigame(false)
+				#next set of notes
+				if next_note_index == 0:
+					note_set_finished = true	
 
 func prepare_minigame(global_pos_to_appear,level, starting_time = 1):
 	global_position = global_pos_to_appear

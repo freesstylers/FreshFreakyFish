@@ -11,7 +11,7 @@ extends Sprite2D
 @onready var fishBiteSound : AudioStreamPlayer = $FishBiteSound
 
 var totalFishCaught : int = 0
-var distinctFishCaught : int = 12
+var distinctFishCaught : int = 0
 
 var fishArray : Array
 
