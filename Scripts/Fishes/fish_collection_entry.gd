@@ -7,6 +7,11 @@ extends Control
 
 func _on_button_pressed():
 	if GameManagerScript.save_dict.has(fishReference.Name):
+		if fishReference.IsColosal:
+			detailedPage.image.scale = Vector2(0.5, 0.5)
+		else:
+			detailedPage.image.scale = Vector2(1, 1)
+		
 		detailedPage.image.texture = fishReference.Sprite
 		detailedPage.fishName.text = "[center]" + tr(fishReference.Name) + "[/center]"
 		detailedPage.fishDesc.text = "[center]" + tr(fishReference.Description) + "[/center]"

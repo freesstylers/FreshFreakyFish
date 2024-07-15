@@ -100,7 +100,7 @@ msgid "MM_Credits"
 msgstr "Créditos"
 
 msgid "MM_HowToDetail"
-msgstr "Mueve tu anzuelo con las flechas\n direccionales\n-\nTira la caña y recógela con Z\n-\nPulsa en la enciclopedia para\n comprobar tu progreso\n-\n¡Disfruta!"
+msgstr "Mueve tu anzuelo con las flechas\n direccionales\n-\nTira la caña y recógela con Z\n-\nPesca al ritmo con Z\n-\nPulsa en la enciclopedia para\n comprobar tu progreso\n-\n¡Disfruta!"
 
 msgid "MM_Close"
 msgstr "Cerrar"

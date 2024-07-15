@@ -26,7 +26,6 @@ func Twitter():
 	ButtonSFX.play()
 	OS.shell_open("https://twitter.com/FreeStylers_Dev")
 
-
 func _on_freestylers_pressed():
 	FreeStylers()
 
@@ -37,6 +36,7 @@ func _on_twitter_pressed():
 	Twitter()
 
 func _on_play_pressed():
+	get_node(".").visible = false
 	ButtonSFX.play()
 
 func _on_how_to_play_pressed():

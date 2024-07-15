@@ -100,7 +100,7 @@ msgid "MM_Credits"
 msgstr "Credits"
 
 msgid "MM_HowToDetail"
-msgstr "Move your hook with the\ndirectional arrows\n-\nCast the fishing rod and\nreturn it with Z\n-\nPress on the encyclopedia to check\nyour progress\n-\nEnjoy!"
+msgstr "Move your hook with the\ndirectional arrows\n-\nCast the fishing rod and\nreturn it with Z\n-\nFish in rhytim with Z\n-\nPress on the encyclopedia to check\nyour progress\n-\nEnjoy!"
 
 msgid "MM_Close"
 msgstr "Close"

@@ -36,7 +36,7 @@ shader_parameter/offset = 0.075
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldxfr"]
 font = ExtResource("17_uv1i0")
-font_size = 128
+font_size = 116
 
 [sub_resource type="LabelSettings" id="LabelSettings_tuwyx"]
 font = ExtResource("17_uv1i0")
@@ -44,7 +44,7 @@ font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_mygyf"]
 font = ExtResource("17_uv1i0")
-font_size = 48
+font_size = 40
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -82,10 +82,11 @@ grow_vertical = 2
 texture = ExtResource("3_m0aq1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("mainpos", "gamepos")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("mainpos", "gamepos", "MainMenu")]
 script = ExtResource("1_hs7cy")
 mainpos = NodePath("../MainPos")
 gamepos = NodePath("../GamePos")
+MainMenu = NodePath("../Control")
 
 [node name="MainPos" type="Node2D" parent="."]
 position = Vector2(640, 540)
@@ -244,7 +245,7 @@ anchor_top = 0.0433884
 anchor_right = 0.979849
 anchor_bottom = 0.28719
 offset_bottom = -73.0
-text = "Credits"
+text = "MM_Credits"
 label_settings = SubResource("LabelSettings_ldxfr")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -332,7 +333,7 @@ anchor_top = 0.0433884
 anchor_right = 0.979849
 anchor_bottom = 0.28719
 offset_bottom = -73.0
-text = "Controls"
+text = "MM_HowTo"
 label_settings = SubResource("LabelSettings_ldxfr")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
