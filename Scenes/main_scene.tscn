@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dquhyqt1kya4s"]
+[gd_scene load_steps=18 format=3 uid="uid://dquhyqt1kya4s"]
 
 [ext_resource type="Shader" path="res://Shaders/Grass/GrassSway.gdshader" id="1_cpttq"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_hs7cy"]
 [ext_resource type="Texture2D" uid="uid://b074c2f0pve36" path="res://Sprites/pruebafondo.png" id="1_rlndd"]
-[ext_resource type="Texture2D" uid="uid://cpnle7yr3q53d" path="res://Sprites/pruebaback.png" id="3_lhhm5"]
 [ext_resource type="Theme" uid="uid://c2ykx5j3i1k0u" path="res://Assets/UI/Themes/UI_General.tres" id="3_xwoam"]
-[ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="6_lgc44"]
 [ext_resource type="PackedScene" uid="uid://d4btjkw6cacqd" path="res://Scenes/uiTestScene.tscn" id="7_32sse"]
 [ext_resource type="AudioStream" uid="uid://cou2to7t415f" path="res://Assets/Music/main.wav" id="8_rudd2"]
 [ext_resource type="Script" path="res://Scripts/Music.gd" id="8_rv7mb"]
@@ -13,8 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://d4aw2ec8cyqch" path="res://Assets/Music/ambient.wav" id="10_thxrk"]
 [ext_resource type="Texture2D" uid="uid://djt234ftxvir6" path="res://Assets/UI/MainMenu/LogoFreestylers.png" id="10_u3wvx"]
 [ext_resource type="Texture2D" uid="uid://nbfrcgyoowlm" path="res://Assets/UI/MainMenu/Twitter.png" id="10_wgj51"]
+[ext_resource type="Texture2D" uid="uid://lv3sk5nl6bqs" path="res://Sprites/logo.png" id="11_4odwq"]
 [ext_resource type="Texture2D" uid="uid://bapfyvclqpah6" path="res://Assets/UI/MainMenu/LogoJam.png" id="11_ku6yw"]
 [ext_resource type="PackedScene" uid="uid://ca6rfsyxbn0va" path="res://Scenes/GameplayScene.tscn" id="14_1bdk5"]
+[ext_resource type="Texture2D" uid="uid://bsb74hhmwkyor" path="res://Assets/Sprites/arrow.png" id="15_b1mru"]
+[ext_resource type="Texture2D" uid="uid://cp6hw1jgf3da" path="res://Assets/Sprites/collection_icon.png" id="16_qeviv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_auocy"]
 shader = ExtResource("1_cpttq")
@@ -50,13 +51,6 @@ grow_vertical = 2
 texture = ExtResource("1_rlndd")
 metadata/_edit_use_anchors_ = true
 
-[node name="UiTestScene" parent="." instance=ExtResource("7_32sse")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.834375
-anchor_right = 1.83438
-metadata/_edit_use_anchors_ = true
-
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("mainpos", "gamepos")]
 script = ExtResource("1_hs7cy")
 mainpos = NodePath("../MainPos")
@@ -67,27 +61,6 @@ position = Vector2(640, 540)
 
 [node name="GamePos" type="Node2D" parent="."]
 position = Vector2(2560, 540)
-
-[node name="Back" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_right = 108.0
-offset_bottom = 108.0
-grow_horizontal = 0
-theme = ExtResource("3_xwoam")
-icon = ExtResource("3_lhhm5")
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-anchor_left = 1.74167
-anchor_top = 0.0351852
-anchor_right = 1.8125
-anchor_bottom = 0.161111
-icon = ExtResource("6_lgc44")
-metadata/_edit_use_anchors_ = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_rudd2")
@@ -108,46 +81,45 @@ metadata/_edit_use_anchors_ = true
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.188021
-anchor_top = 0.111111
-anchor_right = 0.789584
-anchor_bottom = 0.944444
-offset_right = -0.000976563
-offset_bottom = -52.0
+anchor_left = 0.0953128
+anchor_top = 0.0231481
+anchor_right = 0.696876
+anchor_bottom = 0.963889
+offset_right = 380.999
+offset_bottom = 96.0
 theme = ExtResource("3_xwoam")
-theme_override_constants/separation = 60
+theme_override_constants/separation = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(1536, 768)
 layout_mode = 2
-theme = ExtResource("3_xwoam")
-theme_override_font_sizes/font_size = 100
-text = "Fresh Freaky Fish"
-metadata/_edit_use_anchors_ = true
+size_flags_horizontal = 4
+texture = ExtResource("11_4odwq")
 
 [node name="Play" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(400, 120)
+custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_xwoam")
 text = "¡A pescar!"
 
 [node name="How To Play" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(400, 120)
+custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_xwoam")
-text = "How to Play?"
+text = "¿Cómo pescar?"
 
 [node name="Credits" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(400, 120)
+custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_xwoam")
-text = "Credits"
+text = "Créditos"
 
 [node name="OptionButton" type="OptionButton" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(400, 120)
+custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
@@ -161,10 +133,9 @@ popup/item_1/id = 1
 [node name="FreeStylers" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.166667
-anchor_top = 0.741667
-anchor_right = 0.333334
-anchor_bottom = 0.978704
+anchor_top = 0.755556
+anchor_right = 0.166667
+anchor_bottom = 0.992593
 theme = ExtResource("10_3ge0y")
 icon = ExtResource("10_u3wvx")
 metadata/_edit_use_anchors_ = true
@@ -172,9 +143,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Jam" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.664584
+anchor_left = 0.682813
 anchor_top = 0.773148
-anchor_right = 0.960417
+anchor_right = 0.978646
 anchor_bottom = 0.951852
 offset_top = 6.10352e-05
 offset_right = 568.0
@@ -187,10 +158,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Twitter" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0458337
-anchor_top = 0.797222
-anchor_right = 0.120834
-anchor_bottom = 0.930555
+anchor_left = 0.236979
+anchor_top = 0.812963
+anchor_right = 0.31198
+anchor_bottom = 0.946296
 offset_right = -72.0004
 offset_bottom = -72.0
 scale = Vector2(2, 2)
@@ -201,8 +172,45 @@ metadata/_edit_use_anchors_ = true
 [node name="GameplayScene" parent="." instance=ExtResource("14_1bdk5")]
 position = Vector2(1956, 189)
 
+[node name="UiTestScene" parent="." instance=ExtResource("7_32sse")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.834375
+anchor_right = 1.83438
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.913021
+anchor_top = 0.0231481
+anchor_right = 0.913021
+anchor_bottom = 0.0231481
+offset_left = -108.0
+offset_right = 84.0
+offset_bottom = 192.0
+grow_horizontal = 0
+theme = ExtResource("10_3ge0y")
+icon = ExtResource("15_b1mru")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.74844
+anchor_top = 0.0675926
+anchor_right = 1.81927
+anchor_bottom = 0.193518
+offset_right = -119.994
+offset_bottom = -120.0
+scale = Vector2(8, 8)
+theme = ExtResource("10_3ge0y")
+theme_type_variation = &"FlatButton"
+icon = ExtResource("16_qeviv")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="Camera2D" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="Music" method="_on_play_pressed"]
 [connection signal="pressed" from="Back" to="Camera2D" method="_on_back_pressed"]
 [connection signal="pressed" from="Back" to="Music" method="_on_back_pressed"]
 [connection signal="pressed" from="Button" to="UiTestScene" method="_on_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Play" to="Camera2D" method="_on_play_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Play" to="Music" method="_on_play_pressed"]
