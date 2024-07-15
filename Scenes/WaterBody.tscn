@@ -814,7 +814,7 @@ texture = ExtResource("2_we2rl")
 [node name="WaterBodyArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterBodyArea"]
-polygon = PackedVector2Array(59, -183, 191, -173, 335, -127, 409, -91, 443, -9, 405, 71, 301, 113, 201, 125, 87, 153, -107, 149, -311, 103, -441, 21, -447, -55, -381, -117, -273, -159, -173, -181, -45, -181)
+polygon = PackedVector2Array(662, -390, 675, -171, 687, 194, 694, 445, 503, 439, 265, 439, 33, 436, -240, 445, -509, 452, -871, 375, -887, 125, -884, -44, -903, -406, -782, -406, -452, -415, -144, -418, 91, -412)
 
 [node name="TopLeftLimit" type="Node2D" parent="."]
 position = Vector2(-420, -200)

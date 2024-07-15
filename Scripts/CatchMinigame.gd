@@ -133,10 +133,7 @@ func rotate_indicator(delta):
 		hide_minigame(false)
 		#next set of notes
 		if next_note_index == 0:
-			note_set_finished = true		
-			var next_set = (current_set_index+1) % key_areas.size()
-			#if next_set != 0:
-				#show_keynotes(next_set)		
+			note_set_finished = true
 	#Rotate
 	var rotation_delta = rotation_speed * delta
 	if PlayerIndicator.progress_ratio+rotation_delta > 1 and note_set_finished: 

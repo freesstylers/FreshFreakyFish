@@ -11,7 +11,7 @@ extends Sprite2D
 @onready var fishBiteSound : AudioStreamPlayer = $FishBiteSound
 
 var totalFishCaught : int = 0
-var distinctFishCaught : int = 0
+var distinctFishCaught : int = 12
 
 var fishArray : Array
 
@@ -100,7 +100,7 @@ func _on_won_minigame(won):
 		texture = actualFish.Sprite
 		var local_tween = create_tween()
 		local_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-		local_tween.tween_property(self, "scale", Vector2(1,1), 1.0)
+		local_tween.tween_property(self, "scale", Vector2(2,2), 1.0)
 		local_tween.tween_callback(func():
 			var local_tween2 = create_tween()
 			local_tween2.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)

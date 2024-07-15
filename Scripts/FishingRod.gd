@@ -14,6 +14,8 @@ extends Node2D
 @onready var WhiteCircle2 : Sprite2D = $WaterCircle2
 @onready var WhiteCircle3 : Sprite2D = $WaterCircle3
 
+@onready var floatLandSound : AudioStreamPlayer = $FloatLandSound
+
 var playing_minigame : bool = false
 var hook_thrown : bool = false
 var on_play_scene : bool = false
@@ -54,6 +56,7 @@ func _process(delta):
 		
 		if Input.is_action_just_pressed("Pescar") and CatchingMinigame:
 			throw_hook()
+			floatLandSound.play()
 	else:
 		if not playing_minigame and hook_thrown and Input.is_action_just_pressed("Pescar"):
 			recover_hook()

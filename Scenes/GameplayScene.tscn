@@ -42,7 +42,8 @@ scale = Vector2(300, 300)
 texture = ExtResource("7_qo8cp")
 
 [node name="FishManager" parent="." instance=ExtResource("2_dfvys")]
-position = Vector2(1503, 74)
+z_index = 5
+position = Vector2(1462, 96)
 totalNumFish = 13
 variance = 1.2
 

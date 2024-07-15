@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3ko1knhdsvy0"]
+[gd_scene load_steps=9 format=3 uid="uid://b3ko1knhdsvy0"]
 
 [ext_resource type="Script" path="res://Scripts/FishingRod.gd" id="1_1xkbq"]
 [ext_resource type="Texture2D" uid="uid://bx7wy8fuabsti" path="res://icon.svg" id="2_jsl3k"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkcw7fcmn3sa1" path="res://Scenes/CatchMinigame.tscn" id="4_c0scg"]
 [ext_resource type="Texture2D" uid="uid://d3ere2hk3vsxm" path="res://Assets/Sprites/float_underwater.png" id="4_kc4w1"]
 [ext_resource type="Texture2D" uid="uid://camjp47pxejbk" path="res://Assets/Sprites/White-Circle.png" id="5_xwbv7"]
+[ext_resource type="AudioStream" uid="uid://d1e5hho86ugki" path="res://Assets/Sounds/bobland.ogg" id="7_ovfhf"]
 
 [sub_resource type="Curve" id="Curve_agxjw"]
 _data = [Vector2(0, 0.0879121), 0.0, 0.0, 0, 0, Vector2(1, 0.450549), 0.0, 0.0, 0, 0]
@@ -54,5 +55,8 @@ visible = false
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_kc4w1")
 offset = Vector2(0, -60)
+
+[node name="FloatLandSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ovfhf")
 
 [connection signal="timeout" from="Call_Fished_For_Hunt_Timer" to="." method="on_call_fished_for_hunt_timer_ended"]
