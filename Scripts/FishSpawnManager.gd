@@ -46,8 +46,7 @@ func get_random_spawn_position():
 	return water_body.get_random_position_inside_polygon()
 
 func fish_caught(caught : bool ):
-	if caught:
-		current_fish_count -= 1
+	current_fish_count -= 1
 
 func on_spawn_timer_finished():
 	var space_left = max_fish_count - current_fish_count
