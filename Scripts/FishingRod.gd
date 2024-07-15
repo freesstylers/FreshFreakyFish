@@ -52,15 +52,15 @@ func _process(delta):
 				ShotReticle.global_position = new_position
 				ShotReticle2.global_position = new_position
 		
-		if Input.is_action_just_pressed("ui_accept") and CatchingMinigame:
+		if Input.is_action_just_pressed("Pescar") and CatchingMinigame:
 			throw_hook()
 	else:
-		if not playing_minigame and hook_thrown and Input.is_action_just_pressed("ui_accept"):
+		if not playing_minigame and hook_thrown and Input.is_action_just_pressed("Pescar"):
 			recover_hook()
 			
 	#Hit notes
 	if playing_minigame:
-		if Input.is_action_just_pressed("ui_accept") and CatchingMinigame:
+		if Input.is_action_just_pressed("Pescar") and CatchingMinigame:
 			CatchingMinigame.check_key_press()
 		
 func is_inside_water_body(point: Vector2) -> bool:

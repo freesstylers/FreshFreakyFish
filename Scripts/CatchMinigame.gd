@@ -213,6 +213,7 @@ func prepare_minigame(global_pos_to_appear,level, starting_time = 1):
 	timer_count_time = starting_time
 	TimeToStartLeft.text = str(3 as int)
 	TimeToStartLeft.visible = true
+	TimeToStartTimer.start()
 	
 	#Show myself
 	scale = Vector2(0,0)
@@ -254,7 +255,6 @@ func prepare_minigame(global_pos_to_appear,level, starting_time = 1):
 	note_success_threshold = key_areas[0][0].rad_width
 
 func show_keynotes(index):
-	TimeToStartTimer.start()
 	note_success_threshold = key_areas[index][0].rad_width
 	for i in range(key_areas[index].size()):
 		var local_tween = create_tween()
