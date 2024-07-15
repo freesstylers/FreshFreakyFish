@@ -15,8 +15,11 @@ func backToMenu():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _input(event):
+	if event is InputEventMouse:
+		$CanvasLayer/HowToPlay/Label3.text = "MM_HowToDetail_Key"
+	elif event is InputEventJoypadButton or InputEventJoypadMotion:
+		$CanvasLayer/HowToPlay/Label3.text = "MM_HowToDetail_Con"
 
 func FreeStylers():
 	ButtonSFX.play()
@@ -45,9 +48,12 @@ func _on_play_pressed():
 
 func _on_how_to_play_pressed():
 	$CanvasLayer/HowToPlay.visible = true
-
+	$CanvasLayer/HowToPlay/HowToPlayClose.grab_focus()
+	ButtonSFX.play()
+	
 func _on_credits_pressed():
 	$CanvasLayer/Credits.visible = true
+	$CanvasLayer/Credits/CreditsClose.grab_focus()
 	ButtonSFX.play()
 
 func _on_LanguageSelector_button_pressed():
@@ -56,7 +62,9 @@ func _on_LanguageSelector_button_pressed():
 func _on_credits_close_pressed():
 	$CanvasLayer/Credits.visible = false
 	ButtonSFX.play()
+	FirstButton.grab_focus()
 
 func _on_how_to_play_close_pressed():
 	$CanvasLayer/HowToPlay.visible = false
 	ButtonSFX.play()
+	FirstButton.grab_focus()

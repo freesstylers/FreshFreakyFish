@@ -31,6 +31,9 @@ func save_game():
 	# Store the save dictionary as a new line in the save file.
 	save_game.store_line(json_string)
 		
+func _ready():
+	load_game()
+	
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.

@@ -131,6 +131,7 @@ func _on_won_minigame(won):
 				colosalCaught = true
 			if !GameManagerScript.save_dict.has(fishArray[i].Name):
 				GameManagerScript.save_dict[fishArray[i].Name] = true
+				GameManagerScript.save_game()
 			recalculateProbabilities()
 			newFishSound.play()
 		else:

@@ -99,8 +99,11 @@ msgstr "¿Cómo pescar?"
 msgid "MM_Credits"
 msgstr "Créditos"
 
-msgid "MM_HowToDetail"
+msgid "MM_HowToDetail_Key"
 msgstr "Mueve tu anzuelo con las flechas\n direccionales\n-\nTira la caña y recógela con Z\n-\nPesca al ritmo con Z\n-\nPulsa en la enciclopedia para\n comprobar tu progreso\n-\n¡Disfruta!"
+
+msgid "MM_HowToDetail_Con"
+msgstr "Mueve tu anzuelo con el\n stick izquierdo\n-\nTira la caña y recógela con A\n-\nPesca al ritmo con A\n-\nPulsa en la enciclopedia para\n comprobar tu progreso\n-\n¡Disfruta!"
 
 msgid "MM_Close"
 msgstr "Cerrar"
