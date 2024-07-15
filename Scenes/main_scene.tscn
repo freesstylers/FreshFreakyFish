@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dquhyqt1kya4s"]
+[gd_scene load_steps=16 format=3 uid="uid://dquhyqt1kya4s"]
 
+[ext_resource type="Shader" path="res://Shaders/Grass/GrassSway.gdshader" id="1_cpttq"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_hs7cy"]
 [ext_resource type="Texture2D" uid="uid://b074c2f0pve36" path="res://Sprites/pruebafondo.png" id="1_rlndd"]
 [ext_resource type="Texture2D" uid="uid://cpnle7yr3q53d" path="res://Sprites/pruebaback.png" id="3_lhhm5"]
@@ -14,6 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://nbfrcgyoowlm" path="res://Assets/UI/MainMenu/Twitter.png" id="10_wgj51"]
 [ext_resource type="Texture2D" uid="uid://bapfyvclqpah6" path="res://Assets/UI/MainMenu/LogoJam.png" id="11_ku6yw"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_auocy"]
+shader = ExtResource("1_cpttq")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = null
+shader_parameter/heightOffset = null
+shader_parameter/offset = 0.0
+
 [node name="MainScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -24,6 +37,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_auocy")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.166667
