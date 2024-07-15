@@ -110,13 +110,16 @@ func getFish():
 func _on_won_minigame(won):
 	if won:
 		texture = actualFish.Sprite
+		var showScale : Vector2 = Vector2(3.0, 3.0)
+		if actualFish.IsColosal:
+			showScale = Vector2(3.0, 3.0)
 		var local_tween = create_tween()
 		local_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-		local_tween.tween_property(self, "scale", Vector2(2,2), 1.0)
+		local_tween.tween_property(self, "scale", showScale, 2.0)
 		local_tween.tween_callback(func():
 			var local_tween2 = create_tween()
 			local_tween2.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-			local_tween2.tween_property(self, "scale", Vector2(0,0), 1.0)
+			local_tween2.tween_property(self, "scale", Vector2(0,0), 2.0)
 			)
 				
 		var i = findFishIndex(actualFish)
