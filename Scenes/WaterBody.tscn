@@ -23,8 +23,8 @@ shader_parameter/causticColor = Vector4(0.455, 0.773, 1.795, 2.535)
 shader_parameter/causticHighlightColor = Vector4(8.681, 11.104, 4.753, 0.355)
 shader_parameter/causticScale = 0.715
 shader_parameter/causticSpeed = 0.005
-shader_parameter/causticMovementAmount = 0.05
-shader_parameter/causticFaderMultiplier = 2.255
+shader_parameter/causticMovementAmount = -0.04
+shader_parameter/causticFaderMultiplier = 3.66
 shader_parameter/specularColor = Vector4(-0.06, 1.975, -2.41, 0.045)
 shader_parameter/specularThreshold = 1.005
 shader_parameter/specularSpeed = 5.76
@@ -827,8 +827,8 @@ position = Vector2(414, 190)
 [node name="Watershader" type="Sprite2D" parent="."]
 z_index = 1
 material = SubResource("ShaderMaterial_cguqs")
-position = Vector2(-2.5, -15)
-scale = Vector2(1.74023, 0.679688)
+position = Vector2(-96.5, 20)
+scale = Vector2(3.19727, 1.68359)
 texture = SubResource("ViewportTexture_t0cfv")
 
 [node name="SubViewport" type="SubViewport" parent="."]

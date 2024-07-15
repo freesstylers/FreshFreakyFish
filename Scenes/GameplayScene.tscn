@@ -44,8 +44,6 @@ texture = ExtResource("7_qo8cp")
 
 [node name="FishManager" parent="." instance=ExtResource("2_dfvys")]
 z_index = 5
-totalNumFish = 13
-variance = 1.2
 position = Vector2(565, 322)
 
 [connection signal="timeout" from="FishSpawnManager/SpawnRate" to="FishSpawnManager" method="on_spawn_timer_finished"]
