@@ -2,9 +2,11 @@ extends Control
 
 @onready var ButtonSFX: AudioStreamPlayer = $ButtonSFX
 
+@export var FirstButton : Button
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	FirstButton.grab_focus()
 	pass # Replace with function body.
 
 

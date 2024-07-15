@@ -1,6 +1,24 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c2ykx5j3i1k0u"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c2ykx5j3i1k0u"]
 
 [ext_resource type="FontFile" uid="uid://1oobvc5u1g3j" path="res://Assets/Fonts/Retro Gaming.ttf" id="1_p3k7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p0n3"]
+bg_color = Color(0.27451, 0.682353, 0.592157, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0470588, 0.721569, 0.788235, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u8pu"]
 bg_color = Color(0.156863, 0.486275, 0.411765, 1)
@@ -31,22 +49,33 @@ corner_detail = 20
 shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bssa5"]
-bg_color = Color(0.972549, 0.396078, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.513726, 0.878431, 0.298039, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.223529, 0.521569, 0.352941, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x51uq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls0ut"]
+bg_color = Color(0.156863, 0.486275, 0.411765, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.17776, 0.331724, 0.514405, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqdtl"]
 bg_color = Color(0.27451, 0.682353, 0.592157, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo2rq"]
-bg_color = Color(0.278431, 0.658824, 0.74902, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -57,6 +86,19 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 corner_detail = 20
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o6y4"]
+bg_color = Color(0.513726, 0.878431, 0.298039, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.223529, 0.521569, 0.352941, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_558sw"]
 bg_color = Color(0.568627, 0.627451, 0.454902, 1)
@@ -69,6 +111,19 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fguge"]
+bg_color = Color(0.27451, 0.682353, 0.592157, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.243137, 0.427451, 0.647059, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 corner_detail = 20
 
 [resource]
@@ -90,12 +145,15 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_p3k7b")
+Button/styles/focus = SubResource("StyleBoxFlat_1p0n3")
 Button/styles/hover = SubResource("StyleBoxFlat_5u8pu")
 Button/styles/normal = SubResource("StyleBoxFlat_2a60k")
 Button/styles/pressed = SubResource("StyleBoxFlat_bssa5")
 Label/fonts/font = ExtResource("1_p3k7b")
 OptionButton/constants/arrow_margin = 16
-OptionButton/styles/focus = SubResource("StyleBoxFlat_x51uq")
-OptionButton/styles/pressed = SubResource("StyleBoxFlat_fo2rq")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_ls0ut")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_tqdtl")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_3o6y4")
 Panel/styles/panel = SubResource("StyleBoxFlat_558sw")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_fguge")
 RichTextLabel/fonts/normal_font = ExtResource("1_p3k7b")

@@ -87,7 +87,7 @@ script = ExtResource("8_rv7mb")
 mainmenumusic = ExtResource("8_rudd2")
 gamemusic = ExtResource("10_thxrk")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("FirstButton")]
 layout_mode = 1
 anchor_left = -0.166667
 anchor_right = 0.833333
@@ -95,37 +95,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_5p8wd")
+FirstButton = NodePath("CanvasLayer/VBoxContainer/Play")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+follow_viewport_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.0953128
 anchor_top = 0.0231481
 anchor_right = 0.696876
 anchor_bottom = 0.963889
-offset_right = 380.999
+offset_left = -320.001
+offset_right = 60.9983
 offset_bottom = 96.0
 theme = ExtResource("3_xwoam")
 theme_override_constants/separation = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(1536, 768)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("11_4odwq")
 
-[node name="Play" type="Button" parent="Control/VBoxContainer"]
+[node name="Play" type="Button" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../../Twitter")
+focus_neighbor_top = NodePath("../LanguageSelector")
+focus_neighbor_right = NodePath("../../Jam")
 focus_neighbor_bottom = NodePath("../How To Play")
 theme = ExtResource("3_xwoam")
 text = "¡A pescar!"
 
-[node name="How To Play" type="Button" parent="Control/VBoxContainer"]
+[node name="How To Play" type="Button" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -136,19 +142,25 @@ focus_neighbor_bottom = NodePath("../Credits")
 theme = ExtResource("3_xwoam")
 text = "¿Cómo pescar?"
 
-[node name="Credits" type="Button" parent="Control/VBoxContainer"]
+[node name="Credits" type="Button" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../../Twitter")
+focus_neighbor_top = NodePath("../How To Play")
+focus_neighbor_right = NodePath("../../Jam")
+focus_neighbor_bottom = NodePath("../LanguageSelector")
 theme = ExtResource("3_xwoam")
 text = "Créditos"
 
-[node name="LanguageSelector" type="OptionButton" parent="Control/VBoxContainer"]
+[node name="LanguageSelector" type="OptionButton" parent="Control/CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../../Twitter")
+focus_neighbor_top = NodePath("../Credits")
+focus_neighbor_right = NodePath("../../Jam")
+focus_neighbor_bottom = NodePath("../Play")
 alignment = 1
 item_count = 2
 selected = 0
@@ -158,40 +170,44 @@ popup/item_1/text = "English"
 popup/item_1/id = 1
 script = ExtResource("11_xwt16")
 
-[node name="FreeStylers" type="Button" parent="Control"]
-layout_mode = 1
+[node name="FreeStylers" type="Button" parent="Control/CanvasLayer"]
 anchors_preset = -1
 anchor_top = 0.755556
 anchor_right = 0.166667
 anchor_bottom = 0.992593
+offset_left = -320.001
+offset_right = -320.001
+focus_neighbor_left = NodePath("../Jam")
+focus_neighbor_right = NodePath("../Twitter")
 theme = ExtResource("10_3ge0y")
 icon = ExtResource("10_u3wvx")
 metadata/_edit_use_anchors_ = true
 
-[node name="Jam" type="Button" parent="Control"]
-layout_mode = 1
+[node name="Jam" type="Button" parent="Control/CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.682813
 anchor_top = 0.773148
 anchor_right = 0.978646
 anchor_bottom = 0.951852
+offset_left = -320.001
 offset_top = 6.10352e-05
-offset_right = 568.0
+offset_right = 247.999
 offset_bottom = 193.0
 scale = Vector2(0.5, 0.5)
 focus_neighbor_left = NodePath("../VBoxContainer/Play")
+focus_neighbor_right = NodePath("../FreeStylers")
 theme = ExtResource("10_3ge0y")
 icon = ExtResource("11_ku6yw")
 metadata/_edit_use_anchors_ = true
 
-[node name="Twitter" type="Button" parent="Control"]
-layout_mode = 1
+[node name="Twitter" type="Button" parent="Control/CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.236979
 anchor_top = 0.812963
 anchor_right = 0.31198
 anchor_bottom = 0.946296
-offset_right = -72.0004
+offset_left = -320.001
+offset_right = -392.001
 offset_bottom = -72.0
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../FreeStylers")
@@ -200,23 +216,18 @@ theme = ExtResource("10_3ge0y")
 icon = ExtResource("10_wgj51")
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonSFX" type="AudioStreamPlayer" parent="Control"]
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="Control/CanvasLayer"]
 stream = ExtResource("15_lj1w1")
 
 [node name="GameplayScene" parent="." instance=ExtResource("14_1bdk5")]
 position = Vector2(1956, 189)
 
-[node name="UiTestScene" parent="." instance=ExtResource("7_32sse")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.834375
-anchor_right = 1.83438
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="GameplayScene"]
+follow_viewport_enabled = true
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="Button" parent="GameplayScene/CanvasLayer"]
 z_index = 10
 custom_minimum_size = Vector2(192, 192)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.913021
 anchor_top = 0.0231481
@@ -230,32 +241,39 @@ theme = ExtResource("10_3ge0y")
 icon = ExtResource("15_b1mru")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="GameplayScene/CanvasLayer"]
 z_index = 10
-layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.74844
-anchor_top = 0.0675926
-anchor_right = 1.81927
-anchor_bottom = 0.193518
-offset_right = -119.994
-offset_bottom = -120.0
-scale = Vector2(8, 8)
+anchor_left = 1.75156
+anchor_top = 0.80463
+anchor_right = 1.81823
+anchor_bottom = 0.923148
+offset_left = -21.0
+offset_top = -812.0
+offset_right = -133.0
+offset_bottom = -924.0
 theme = ExtResource("10_3ge0y")
 theme_type_variation = &"FlatButton"
 icon = ExtResource("16_qeviv")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Control/VBoxContainer/Play" to="Camera2D" method="_on_play_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Play" to="Music" method="_on_play_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Play" to="Control" method="_on_play_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/How To Play" to="Control" method="_on_how_to_play_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Credits" to="Control" method="_on_credits_pressed"]
-[connection signal="item_selected" from="Control/VBoxContainer/LanguageSelector" to="Control/VBoxContainer/LanguageSelector" method="_on_item_selected"]
-[connection signal="pressed" from="Control/VBoxContainer/LanguageSelector" to="Control" method="_on_LanguageSelector_button_pressed"]
-[connection signal="pressed" from="Control/FreeStylers" to="Control" method="_on_freestylers_pressed"]
-[connection signal="pressed" from="Control/Jam" to="Control" method="_on_jam_pressed"]
-[connection signal="pressed" from="Control/Twitter" to="Control" method="_on_twitter_pressed"]
-[connection signal="pressed" from="Back" to="Camera2D" method="_on_back_pressed"]
-[connection signal="pressed" from="Back" to="Music" method="_on_back_pressed"]
-[connection signal="pressed" from="Button" to="UiTestScene" method="_on_button_pressed"]
+[node name="UiTestScene" parent="." instance=ExtResource("7_32sse")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.834375
+anchor_right = 1.83438
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Play" to="Camera2D" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Play" to="Music" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Play" to="Control" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/How To Play" to="Control" method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/Credits" to="Control" method="_on_credits_pressed"]
+[connection signal="item_selected" from="Control/CanvasLayer/VBoxContainer/LanguageSelector" to="Control/CanvasLayer/VBoxContainer/LanguageSelector" method="_on_item_selected"]
+[connection signal="pressed" from="Control/CanvasLayer/VBoxContainer/LanguageSelector" to="Control" method="_on_LanguageSelector_button_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/FreeStylers" to="Control" method="_on_freestylers_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/Jam" to="Control" method="_on_jam_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/Twitter" to="Control" method="_on_twitter_pressed"]
+[connection signal="pressed" from="GameplayScene/CanvasLayer/Back" to="Camera2D" method="_on_back_pressed"]
+[connection signal="pressed" from="GameplayScene/CanvasLayer/Back" to="Music" method="_on_back_pressed"]
+[connection signal="pressed" from="GameplayScene/CanvasLayer/Button" to="UiTestScene" method="_on_button_pressed"]
