@@ -26,6 +26,9 @@ func _input(event):
 	if event.is_action_pressed("Back"):
 		if posToMoveTo == gamepos.position and not Book.get_child(0).get_child(0).visible:
 			_on_back_pressed()
+		elif posToMoveTo == mainpos.position:
+			get_tree().quit()
+			
 	if event.is_action_pressed("Book"):
 		if posToMoveTo == gamepos.position:
 			Book._on_button_pressed()
