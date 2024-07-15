@@ -29,7 +29,6 @@ func spawn_fish():
 	if current_fish_count < max_fish_count:
 		var fish_instance = fish_scene.instantiate() as FishBase
 		var spawn_position = get_random_spawn_position()
-		fish_instance.global_position = spawn_position
 		
 		# Randomize the scale of the fish
 		var random_scale = randf_range(min_fish_scale, max_fish_scale)
@@ -37,6 +36,8 @@ func spawn_fish():
 		
 		fish_instance.set_water_body(water_body)
 		FishesSpawnedPool.add_child(fish_instance)
+		fish_instance.global_position = spawn_position
+		fish_instance.set_new_target()
 		current_fish_count += 1
 
 func get_random_spawn_position():

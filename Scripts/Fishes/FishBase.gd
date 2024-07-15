@@ -28,7 +28,7 @@ var I_Got_Hooked : bool = false
 @onready var MouthNode : Node2D = $Mouth
 
 func _ready():
-	set_new_target()
+	#set_new_target()
 	var local_tween = create_tween()
 	FishSprite.modulate.a = 0
 	local_tween.tween_property(FishSprite, "modulate:a", 1, randf_range(MIN_SPAWN_FADE_IN_DURATION, MAX_SPAWN_FADE_IN_DURATION))

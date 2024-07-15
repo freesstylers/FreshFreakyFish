@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://djt234ftxvir6" path="res://Assets/UI/MainMenu/LogoFreestylers.png" id="10_u3wvx"]
 [ext_resource type="Texture2D" uid="uid://nbfrcgyoowlm" path="res://Assets/UI/MainMenu/Twitter.png" id="10_wgj51"]
 [ext_resource type="Texture2D" uid="uid://bapfyvclqpah6" path="res://Assets/UI/MainMenu/LogoJam.png" id="11_ku6yw"]
+[ext_resource type="PackedScene" uid="uid://ca6rfsyxbn0va" path="res://Scenes/GameplayScene.tscn" id="14_1bdk5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_auocy"]
 shader = ExtResource("1_cpttq")
@@ -196,6 +197,9 @@ scale = Vector2(2, 2)
 theme = ExtResource("10_3ge0y")
 icon = ExtResource("10_wgj51")
 metadata/_edit_use_anchors_ = true
+
+[node name="GameplayScene" parent="." instance=ExtResource("14_1bdk5")]
+position = Vector2(1956, 189)
 
 [connection signal="pressed" from="Back" to="Camera2D" method="_on_back_pressed"]
 [connection signal="pressed" from="Back" to="Music" method="_on_back_pressed"]
