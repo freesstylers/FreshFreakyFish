@@ -17,6 +17,8 @@ var fishArray : Array
 
 var actualFish : Fish = null
 
+var colosalCaught : bool = false
+
 func _ready():
 	
 	GameManagerScript.connect("game_over", _on_won_minigame)
@@ -41,15 +43,24 @@ func getGaussianProbability(num):
 	return prob
 	
 func recalculateProbabilities():
-	for i in totalNumFish:
-		fishArray[i].Probability = getGaussianProbability(i)
-	
-	if distinctFishCaught > totalNumFish-3:
-		fishArray[totalNumFish-1].Probability = 0.1
-	else:
-		fishArray[totalNumFish-1].Probability = 0.0
+	if not colosalCaught:
+		for i in totalNumFish:
+			if i == 0:
+				fishArray[i].Probability = getGaussianProbability(i)
+			else:
+				fishArray[i].Probability = getGaussianProbability(i) + fishArray[i-1].Probability
 		
-	normalizeProbabilities()
+		if distinctFishCaught > totalNumFish-3:
+			fishArray[totalNumFish-1].Probability = 0.1
+		else:
+			fishArray[totalNumFish-1].Probability = 0.0
+			
+	else:
+		for i in totalNumFish:
+			fishArray[i].Probability = 1.0 / totalNumFish
+			if i > 0:
+				fishArray[i].Probability+=fishArray[i-1].Probability
+		
 
 # Ajustamos la campana para que la suma de todas las probabilidades (menos las de coloso) sumen 100%
 func normalizeProbabilities():
@@ -79,7 +90,8 @@ func getFish():
 				
 			# Lo hacemos de esta manera para que las probabilidades actuen como pesos
 			# Y lo multiplicamos por 10000 para que haya precision de hasta dos decimales
-			if randoNum > prevProb*10000 and randoNum < fishArray[i].Probability*10000:
+			var thisFishProb = fishArray[i].Probability
+			if randoNum > prevProb*10000 and randoNum < thisFishProb*10000:
 					
 				fishCaught = fishArray[i]
 
@@ -112,6 +124,8 @@ func _on_won_minigame(won):
 		if fishArray[i].Caught == false:
 			distinctFishCaught+=1
 			fishArray[i].Caught = true
+			if fishArray[i].IsColosal:
+				colosalCaught = true
 			if !GameManagerScript.save_dict.has(fishArray[i].Name):
 				GameManagerScript.save_dict[fishArray[i].Name] = true
 			recalculateProbabilities()
